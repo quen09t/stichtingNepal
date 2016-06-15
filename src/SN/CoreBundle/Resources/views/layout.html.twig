@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{%  block title %}Stichting Nepal - {% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets filter='cssrewrite'
+        'bundles/sncore/css/layout.css'
+        'bundles/sncore/css/back.css'
+        'bundles/snuser/css/manageUsers.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+    {%  endblock stylesheets %}
+    {% block javascript %}
+        <script
+                src="https://code.jquery.com/jquery-2.2.3.min.js"
+                integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+                crossorigin="anonymous"></script>
+        {% javascripts
+        'bundles/snuser/js/manageUsers.js'
+        output='js/compiled/app.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</head>
+<body>
+    <div id="userBanner" class="top">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <span id="username">{{ app.user.username }}</span>
+            <span id="logout"> <a href="{{ path('fos_user_security_logout') }}">
+                    <button class="userButton">Logout </button></a></span>
+            <span id="userEdit"> <a href=" {{ path('sn_user_edit', {'id' : app.user.id, }) }}">
+                    <button class="userButton">Edit profile</button></a></span>
+            <span id="userEdit"> <a href=" {{ path('sn_user_changePassword', {'id' : app.user.id, }) }}">
+                    <button class="userButton">Change password</button></a></span>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">Login</a> -
+            <a href="{{ path('fos_user_registration_register') }}">Register</a>
+        {% endif %}
+    </div>
+    <div id="pageContainer">
+        <div id="sidebar">
+            {% embed "SNCoreBundle::sidebar.html.twig" %}
+            {% endembed %}
+        </div>
+        <div class="fosContent">
+
+        </div>
+
+        <div id="content">
+            {% block content %}
+                {% block fos_content %}
+                    {% block fos_user_content %}{% endblock %}
+                {% endblock %}
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/img/footer_anbi.png' %}
+            <img src="{{ asset_url }}" alt="anbi" />
+            {% endimage %}
+        </span>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/img/footer_cbf.png' %}
+            <img src="{{ asset_url }}" alt="cbf" />
+            {% endimage %}
+        </span>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/img/footer_ganzen.png' %}
+            <img src="{{ asset_url }}" alt="wilde ganzen" />
+            {% endimage %}
+        </span>
+    </footer>
+
+
+
+</body>
+
+</html>

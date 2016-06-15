@@ -1,0 +1,15 @@
+sn_link_homepage:
+    path:     /
+    defaults: { _controller: SNLinkBundle:Default:index }
+
+sn_link_add:
+    path:     /add
+    defaults: { _controller: SNLinkBundle:Default:add }
+
+sn_link_view:
+    path:     /view
+    defaults: { _controller: SNLinkBundle:Default:view }
+
+sn_link_delete:
+    path:     /delete/{id}
+    defaults: { _controller: SNLinkBundle:Default:delete }

@@ -1,0 +1,7 @@
+{%  extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+
+    {% for link in links %}
+        <a href="{{ link.url }}">{{ link.description }}</a>
+    {% endfor %}
+{% endblock %}

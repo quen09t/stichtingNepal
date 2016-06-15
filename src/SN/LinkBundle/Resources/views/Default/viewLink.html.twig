@@ -1,0 +1,7 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+{% for link in links %}
+    <li>{{  link.description }}</li>
+<a href=" {{ path('sn_link_delete', {'id' : link.id, }) }}">Delete</a>
+{% endfor %}
+{% endblock %}

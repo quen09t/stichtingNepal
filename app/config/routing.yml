@@ -1,0 +1,22 @@
+sn_document:
+    resource: "@SNDocumentBundle/Resources/config/routing.yml"
+    prefix:   /documents/
+
+sn_link:
+    resource: "@SNLinkBundle/Resources/config/routing.yml"
+    prefix:   /links/
+
+sn_core:
+    resource: "@SNCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sn_blog:
+    resource: "@SNBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog/
+
+sn_user:
+    resource: "@SNUserBundle/Resources/config/routing.yml"
+    prefix:   /user/
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,16 @@
+{%  extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+    <div class="backGroup">
+        <span class="backItem"><a href="{{ path('sn_link_add') }}">Add Link</a></span>
+        <span class="backItem"><a href="{{ path('sn_link_view') }}">Delete Link</a></span>
+    </div>
+    <div class="backGroup">
+        <span class="backItem"><a href="{{ path('sn_blog_add') }}">Add Blog Post</a></span>
+        <span class="backItem"><a href="{{ path('sn_blog_view') }}">Delete/Edit Blog Post</a></span>
+    </div>
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <div class="backGroup">
+        <span class="backItem"><a href="{{ path('sn_user_view') }}">Manage Users</a></span>
+    </div>
+    {% endif %}
+{% endblock %}

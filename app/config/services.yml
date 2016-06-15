@@ -1,0 +1,13 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.post_voter:
+        class: SN\BlogBundle\Security\PostVoter
+        arguments: ['@security.access.decision_manager']
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false

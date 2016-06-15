@@ -1,0 +1,18 @@
+.editUser {
+    margin: 5px 25px;
+    padding: 10px;
+}
+
+#UserContainer table tr{
+    border: 1px solid black;
+    padding: 5px;
+}
+#UserContainer table td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 5px;
+}
+#UserContainer table td:last-child{
+    border-bottom: 1px solid black;
+    padding: 5px;
+}

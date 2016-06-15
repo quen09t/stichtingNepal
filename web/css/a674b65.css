@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#pageContainer{
+    flex: 1 100%;
+}
+#content {
+    flex: 2 0px;
+}
+
+#userBanner {
+    order: 1;
+    background-image: url('../../bundles/sncore/img/NepalBanner.png');
+    background-size:100% 100px ;
+
+    height:100px;
+}
+#pageContainer {
+    order: 2;
+    display: flex;
+    flex-flow: row wrap;
+}
+footer {
+    order: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #C82829;
+    height:100px;
+}
+#sidebar {
+    flex:1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+#content {
+    flex:9;
+    background-color: #8959A8;
+}
+.sidebarItem {
+    padding-top: 15px;
+    align-items: center;
+    text-align: center;
+}
+#content {
+    flex:9
+}
+footer .footerImg {
+    justify-content: space-around;
+    text-align: center;
+    height: 80px;
+    padding-top: 10px;
+
+}

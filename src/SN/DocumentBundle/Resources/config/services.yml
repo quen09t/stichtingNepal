@@ -1,0 +1,4 @@
+services:
+#    sn_document.example:
+#        class: SN\DocumentBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

@@ -1,0 +1,19 @@
+sn_blog_homepage:
+    path:     /
+    defaults: { _controller: SNBlogBundle:Default:index }
+
+sn_blog_add:
+    path: /add
+    defaults: { _controller: SNBlogBundle:Default:add }
+
+sn_blog_edit:
+    path: /edit/{id}
+    defaults: { _controller: SNBlogBundle:Default:edit }
+
+sn_blog_view:
+    path: /view
+    defaults: { _controller: SNBlogBundle:Default:view }
+
+sn_blog_delete:
+    path: /delete/{id}
+    defaults: { _controller: SNBlogBundle:Default:delete }
