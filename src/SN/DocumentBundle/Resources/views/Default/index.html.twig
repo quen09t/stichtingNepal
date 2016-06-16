@@ -1,4 +1,7 @@
 {% extends 'SNCoreBundle::layout.html.twig' %}
 {% block content %}
-{{ form(form) }}
+    <h2>Documents</h2>
+{% for document in documents %}
+    <li><a href="{{ asset(document.webPath) }}">{{ document.documentName }}</a> {{ document.description }} </li>
+{% endfor %}
 {%  endblock %}

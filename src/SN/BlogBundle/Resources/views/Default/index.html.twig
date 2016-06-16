@@ -8,17 +8,23 @@
 
     {% for post in posts %}
         <div class="post">
-            <h3>{{ post.title }}</h3>
-        {% if post.image.webPath is defined %}
-            <img
-                    src="{{ asset(post.image.webPath) }}"
-                    alt="{{ post.image.alt }}"
-            />
-        {%  endif %}
-            <p>{{ post.content }}</p>
-            <a href=" {{ post.link }}">{{ post.link }}</a>
-            <span class="postAuthor">{{ post.createdBy }}</span>
-            <span class="postDate">{{ post.createdOn|date("F jS \\a\\t g:ia") }}</span>
+            <div class="blogSideBar">
+                Created by {{ post.createdBy  }} <br/> {{ post.createdOn|date("F jS \\a\\t g:ia") }} <br/>
+                        {% if post.updatedBy %}
+                Updated by {{ post.updatedBy }} <br/> {{ post.updatedOn|date("F jS \\a\\t g:ia") }}
+                        {%  endif %}
+            </div>
+            <div class="postContent">
+                <h3>{{ post.title }}</h3>
+
+                <p>{% if post.image.webPath is defined %}
+                        <img class="blogImage"
+                             src="{{ asset(post.image.webPath) }}"
+                             alt="{{ post.image.alt }}"
+                        />
+                    {%  endif %}{{ post.content }}</p>
+                <a href=" {{ post.link }}">{{ post.link }}</a>
+            </div>
         </div>
     {% endfor %}
 {%  endblock %}

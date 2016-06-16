@@ -13,3 +13,7 @@ sn_link_view:
 sn_link_delete:
     path:     /delete/{id}
     defaults: { _controller: SNLinkBundle:Default:delete }
+
+sn_link_edit:
+    path:     /edit/{id}
+    defaults: { _controller: SNLinkBundle:Default:edit }

@@ -3,5 +3,6 @@
 {% for link in links %}
     <li>{{  link.description }}</li>
 <a href=" {{ path('sn_link_delete', {'id' : link.id, }) }}">Delete</a>
+<a href=" {{ path('sn_link_edit', {'id' : link.id, }) }}">Edit</a>
 {% endfor %}
 {% endblock %}

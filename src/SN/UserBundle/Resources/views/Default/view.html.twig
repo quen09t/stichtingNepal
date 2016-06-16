@@ -16,13 +16,13 @@
                 <tr id="user_{{ user.id }}">
                     <td>{{  user.username }}</td>
                     <td> {{ user.email }}</td>
-                    <td> <label for="SA{{ user.id }}" class="labelSuperAdmin">Super Admin</label>
+                    <td class="labelSuperAdmin roleCell"> <label for="SA{{ user.id }}">Super Admin</label>
                         <input class="radioRole" id="SA{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_SUPER_ADMIN"></td>
-                    <td> <label for="A{{ user.id }}" class="labelAdmin">Admin</label>
+                    <td class="labelAdmin roleCell"> <label for="A{{ user.id }}" >Admin</label>
                      <input class="radioRole" id="A{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_ADMIN"></td>
-                    <td> <label for="U{{ user.id }}" class="labelUser">User</label>
+                    <td class="labelUser roleCell"> <label for="U{{ user.id }}" >User</label>
                         <input class="radioRole" id="U{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_USER"></td>
-                    <td><a href=" {{ path('sn_user_delete', {'id' : user.id, }) }}">Delete</a></td>
+                    <td><span class="deleteButton button"><a href=" {{ path('sn_user_delete', {'id' : user.id, }) }}">Delete</a></span></td>
                 </tr>
 
         {% endfor %}
@@ -76,9 +76,9 @@
                 var thisId = $(this).attr("name");
                 var mySelector = $("#user_"+thisId);
                 var thisRole = $(this).attr("value");
-                mySelector.find("label").removeClass("activeRole");
+                mySelector.find("td").removeClass("activeRole");
                 var childId = event.target.id;
-                $("label[for='"+childId+"'").addClass("activeRole");
+                $("label[for='"+childId+"']").parent().addClass("activeRole");
 
 
                 $.post("{{ path('sn_user_changeRole') }}", {id:thisId, role:thisRole});

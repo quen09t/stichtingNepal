@@ -9,7 +9,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction(){
+        $repo = $this->getDoctrine()->getRepository('SNDocumentBundle:Document');
+        $documents = $repo->findAll();
+
+
+        return $this->render('SNDocumentBundle:Default:index.html.twig', array('documents'=>$documents,));
+
+    }
+
+    public function addAction(Request $request)
     {
         $document = new Document;
         $form = $this->createForm(DocumentType::class, $document);
@@ -21,6 +30,31 @@ class DefaultController extends Controller
 
             return $this->redirectToRoute('sn_document_homepage');
         }
-        return $this->render('SNDocumentBundle:Default:index.html.twig', array('form'=>$form->createView(),));
+        return $this->render('SNDocumentBundle:Default:add.html.twig', array('form'=>$form->createView(),));
+    }
+
+    public function editAction(Request $request, $id){
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository('SNDocumentBundle:Document');
+
+        $document = $repo->find($id);
+
+        $form = $this->createForm(DocumentType::class, $document);
+
+        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            $em->persist($document);
+            $em->flush();
+
+            return $this->redirectToRoute('sn_document_homepage');
+        }
+
+        return $this->render('SNDocumentBundle:Default:add.html.twig', array('form'=>$form->createView(),));
+    }
+
+    public function viewAction(){
+        $repo = $this->getDoctrine()->getRepository('SNDocumentBundle:Document');
+        $documents = $repo->findAll();
+
+        return $this->render('SNDocumentBundle:Default:view.html.twig', array('documents'=>$documents));
     }
 }

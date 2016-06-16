@@ -76,4 +76,12 @@ class DefaultController extends Controller
         return $this->render('SNBlogBundle:Default:add.html.twig', array ( 'form' => $form->createView(),));
 
     }
+    
+    public function newestAction(){
+        $post = $this->getDoctrine()
+            ->getRepository('SNBlogBundle:Post')
+            ->findNewest();
+        
+        return $this->render('SNBlogBundle:Default:newestPost.html.twig', array('post'=>$post));
+    }
 }

@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#pageContainer{
+    flex: 1 100%;
+}
+#content {
+    flex: 2 0px;
+}
+
+#userBanner {
+    order: 1;
+    background-image: url('../../bundles/sncore/images/NepalBanner.png');
+    background-size:100% 100px ;
+    border-bottom: 2px solid black;
+    height:100px;
+}
+#pageContainer {
+    order: 2;
+    display: flex;
+    flex-flow: row wrap;
+}
+footer {
+    order: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    border-top: 2px solid black;
+    height:100px;
+    justify-content: space-around;
+}
+#sidebar {
+    flex:1;
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: 2px solid black;
+}
+#content {
+    flex:9;
+    padding: 25px;
+}
+
+#content {
+    flex:9
+}
+footer .footerImg img{
+
+    text-align: center;
+    height: 80px;
+    padding-top: 10px;
+
+}
+
+.userButton {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    border:1px solid #dcdcdc;
+}
+.userButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}

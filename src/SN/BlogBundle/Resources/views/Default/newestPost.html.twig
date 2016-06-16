@@ -1,0 +1,10 @@
+<h3>{{ post.title }}</h3>
+{{ post.createdOn|date("F jS \\a\\t g:ia") }}<br/>
+{{ post.createdBy }}<br/>
+{% if post.image.webPath is defined %}
+    <img class="blogImageSmall"
+         src="{{ asset(post.image.webPath) }}"
+         alt="{{ post.image.alt }}"
+    />
+{%  endif %}
+<p>{{ post.content }}</p>

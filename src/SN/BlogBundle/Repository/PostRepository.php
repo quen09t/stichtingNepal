@@ -10,4 +10,13 @@ namespace SN\BlogBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    function findNewest(){
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.createdOn', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+        return $qb;
+
+    }
 }

@@ -79,13 +79,3 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
-
-vich_uploader:
-    db_driver: orm # or mongodb or propel or phpcr
-    mappings:
-        document:
-            upload_destination: documents_fs
-            namer:              vich_uploader.namer_uniqid
-            inject_on_load:     false
-            delete_on_update:   true
-            delete_on_remove:   true

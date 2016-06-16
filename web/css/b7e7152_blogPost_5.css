@@ -1,0 +1,25 @@
+.blogImage {
+    max-width: 400px;
+    max-height: 400px;
+    float: left;
+}
+
+.post {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid black;
+    min-height: 450px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.post h3 {
+    text-align: center;
+    width: 100%;
+}
+.postSideBar {
+    flex:1;
+}
+.postContent{
+    flex: 5;
+}

@@ -43,11 +43,7 @@ footer {
     flex:9;
     padding: 25px;
 }
-.sidebarItem {
-    padding-top: 15px;
-    align-items: center;
-    text-align: center;
-}
+
 #content {
     flex:9
 }

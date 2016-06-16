@@ -1,0 +1,8 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+
+    {% for document in documents %}
+        <li>{{ document.documentName }} <a href="{{ path('sn_document_edit', {'id':document.id}) }}">Edit</a> </li>
+    {%  endfor %}
+
+{%  endblock %}

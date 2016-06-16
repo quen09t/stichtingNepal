@@ -4,3 +4,7 @@ sn_core_homepage:
 sn_core_back:
     path: /back
     defaults: { _controller: SNCoreBundle:Back:index }
+
+sn_core_donate:
+    path: /donate
+    defaults: { _controller: SNCoreBundle:Back:donate }

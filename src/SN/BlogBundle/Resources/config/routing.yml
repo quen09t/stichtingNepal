@@ -17,3 +17,7 @@ sn_blog_view:
 sn_blog_delete:
     path: /delete/{id}
     defaults: { _controller: SNBlogBundle:Default:delete }
+
+sn_blog_newestPost:
+  path: /newest/
+  defaults: { _controller: SNBlogBundle:Default:newest }

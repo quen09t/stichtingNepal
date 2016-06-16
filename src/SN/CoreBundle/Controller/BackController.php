@@ -10,4 +10,8 @@ class BackController extends Controller
     {
         return $this->render('SNCoreBundle:Back:index.html.twig');
     }
+
+    public function donateAction() {
+        return $this->render(('SNCoreBundle:Donation:index.html.twig'));
+    }
 }

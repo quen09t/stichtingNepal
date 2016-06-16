@@ -8,17 +8,17 @@
     border: 1px solid black;
     padding: 5px;
 }
+
+#UserContainer table{
+    margin: 2% auto;
+}
 #UserContainer table td{
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin:0;
-    padding: 5px 0px;
+    padding: 5px 5px;
 }
-#UserContainer label{
-    padding:5px 10px;
-    margin: -1px 0px;
-}
-#UserContainer label:hover{
+#UserContainer .roleCell:hover{
     background-color: #0088CC;
     cursor: hand;
 }
@@ -35,6 +35,7 @@
 .activeRole {
     background-color: #99CDD8;
     padding: 5px;
+    font-weight: bold;
 }
 .radioRole {
     display: none;

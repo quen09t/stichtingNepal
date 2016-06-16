@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#pageContainer{
+    flex: 1 100%;
+}
+#content {
+    flex: 2 0px;
+}
+
+#userBanner {
+    order: 1;
+    background-image: url('../../bundles/sncore/img/NepalBanner.png');
+    background-size:100% 100px ;
+    border-bottom: 2px solid black;
+    height:100px;
+}
+#pageContainer {
+    order: 2;
+    display: flex;
+    flex-flow: row wrap;
+}
+footer {
+    order: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    border-top: 2px solid black;
+    height:100px;
+    justify-content: space-around;
+}
+#sidebar {
+    flex:1;
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: 2px solid black;
+}
+#content {
+    flex:9;
+    padding: 25px;
+}
+.sidebarItem {
+    padding-top: 15px;
+    align-items: center;
+    text-align: center;
+}
+#content {
+    flex:9
+}
+footer .footerImg img{
+
+    text-align: center;
+    height: 80px;
+    padding-top: 10px;
+
+}
+.backGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px inset gray;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    background-color: #c9c9c9;
+}
+.backItem {
+    box-sizing: border-box;
+    border: 2px outset black;
+    margin: 3px;
+    text-align: center;
+    padding: 5px;
+    background-color: #c73b3a;
+    flex: 1;
+}
+.backItem:hover {
+    border: 2px inset black;
+}
+.backItem a {
+    text-decoration: none !important;
+    font-size: 1.5em !important;
+    font-weight:bold !important;
+    color: black !important;
+
+}
+
+#UserContainer {
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+#UserContainer table th{
+    border: 1px solid black;
+    padding: 5px;
+}
+#UserContainer table td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin:0;
+    padding: 5px 0px;
+}
+#UserContainer label{
+    padding:5px 10px;
+    margin: -1px 0px;
+}
+#UserContainer label:hover{
+    background-color: #0088CC;
+    cursor: hand;
+}
+
+#UserContainer tbody tr:nth-child(even){
+    background-color: white;
+}
+#UserContainer tbody tr:nth-child(odd){
+    background-color: lightgray;
+}
+#UserContainer tr:last-child{
+    border-bottom: 1px solid black;
+}
+.activeRole {
+    background-color: #99CDD8;
+    padding: 5px;
+}
+.radioRole {
+    display: none;
+}
+
+.blogImage {
+    max-width: 400px;
+}
+
+.post {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.post h3 {
+    text-align: center;
+    width: 100%;
+}
+

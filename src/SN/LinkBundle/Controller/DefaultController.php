@@ -33,6 +33,22 @@ class DefaultController extends Controller
         return $this->render('SNLinkBundle:Default:addLink.html.twig', array('form'=>$form->createView(),));
     }
 
+    public function editAction(Request $request, $id){
+        $em = $this->getDoctrine()->getManager();
+        $link = $this->getDoctrine()->getRepository('SNLinkBundle:Link')->find($id);
+        $form = $this->createForm(AddLinkType::class, $link);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            $em->persist($link);
+            $em->flush();
+
+            return $this->redirectToRoute('sn_link_view');
+        }
+
+        return $this->render('SNLinkBundle:Default:editLink.html.twig', array('form'=>$form->createView(),));
+
+    }
+
     public function viewAction() {
         $repo = $this->getDoctrine()->getRepository('SNLinkBundle:Link');
         $links = $repo->findAll();

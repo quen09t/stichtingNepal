@@ -27,7 +27,8 @@ class Post
     private $image;
     
     /**
-     * @ORM\OneToOne(targetEntity="SN\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="SN\UserBundle\Entity\User")
+     *
      */
     private $createdBy;
 

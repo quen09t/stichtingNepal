@@ -1,3 +1,15 @@
 sn_document_homepage:
     path:     /
     defaults: { _controller: SNDocumentBundle:Default:index }
+
+sn_document_add:
+    path:     /add
+    defaults: { _controller: SNDocumentBundle:Default:add }
+
+sn_document_edit:
+    path: /edit/{id}
+    defaults: {_controller: SNDocumentBundle:Default:edit}
+
+sn_document_view:
+   path: /view/
+   defaults: {_controller: SNDocumentBundle:Default:view}

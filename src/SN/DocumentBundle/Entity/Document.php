@@ -3,18 +3,101 @@
 namespace SN\DocumentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Document
  *
  * @ORM\Table(name="sn_document")
- * @Vich\Uploadable
  * @ORM\Entity(repositoryClass="SN\DocumentBundle\Repository\DocumentRepository")
+ * @ORM\HasLifecycleCallbacks
+ * 
  */
 class Document
 {
+    private $file;
+
+    private $tempFilname;
+
+    public function setFile(UploadedFile $file){
+        $this->file = $file;
+
+        if(null !== $this->url){
+            $this->tempFilname = $this->url;
+
+            $this->url = null;
+            $this->alt = null;
+        }
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload(){
+        if (null === $this->file){
+            return;
+        }
+
+        $this->url = $this->file->guessExtension();
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        if (null !== $this->tempFilname){
+            $oldFile = $this->getUploadDir().'/'.$this->id.'.'.$this->tempFilname;
+            if (file_exists($oldFile))
+                unlink($oldFile);
+        }
+
+        $this->file->move(
+            $this->getUploadDir(),
+            $this->id.'.'.$this->url
+        );
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function preRemoveUpload() {
+        $this->tempFilname = $this->getUploadDir().'/'.$this->id.'.'.$this->url;
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function removeUpload() {
+        if(file_exists($this->tempFilname)){
+            unlink($this->tempFilname);
+        };
+    }
+
+    public function getUploadDir()
+    {
+        return 'uploads/documents';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    private $webPath;
+
+    public function getWebPath()
+
+    {
+        return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
+    }
     /**
      * @var int
      *
@@ -27,33 +110,32 @@ class Document
     /**
      * @var string
      *
-     * @ORM\Column(name="documentName", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255)
      */
-    private $documentName;
-
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
-     *
-     * @var File
-     */
-    private $documentFile;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="uploadedAt", type="datetime")
-     */
-    private $uploadedAt;
+    private $url;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="documentName", type="string", length=255, nullable=true)
+     */
+    private $documentName;
+    
+    
+
+
+    public function getFile()
+
+    {
+        return $this->file;
+    }
 
     /**
      * Get id
@@ -66,72 +148,27 @@ class Document
     }
 
     /**
-     * Set documentName
+     * Set url
      *
-     * @param string $documentName
+     * @param string $url
      *
      * @return Document
      */
-    public function setDocumentName($documentName)
+    public function setUrl($url)
     {
-        $this->documentName = $documentName;
+        $this->url = $url;
 
         return $this;
     }
 
     /**
-     * Get documentName
+     * Get url
      *
      * @return string
      */
-    public function getDocumentName()
+    public function getUrl()
     {
-        return $this->documentName;
-    }
-
-    public function setDocumentFile(File $document = null)
-    {
-        $this->documentFile = $document;
-
-        if ($document) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->uploadedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return File
-     */
-    public function getDocumentFile()
-    {
-        return $this->documentFile;
-    }
-
-    /**
-     * Set uploadedAt
-     *
-     * @param \DateTime $uploadedAt
-     *
-     * @return Document
-     */
-    public function setUploadedAt($uploadedAt)
-    {
-        $this->uploadedAt = $uploadedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get uploadedAt
-     *
-     * @return \DateTime
-     */
-    public function getUploadedAt()
-    {
-        return $this->uploadedAt;
+        return $this->url;
     }
 
     /**
@@ -156,5 +193,29 @@ class Document
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set documentName
+     *
+     * @param string $documentName
+     *
+     * @return Document
+     */
+    public function setDocumentName($documentName)
+    {
+        $this->documentName = $documentName;
+
+        return $this;
+    }
+
+    /**
+     * Get documentName
+     *
+     * @return string
+     */
+    public function getDocumentName()
+    {
+        return $this->documentName;
     }
 }

@@ -21,8 +21,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new SN\LinkBundle\SNLinkBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new SN\DocumentBundle\SNDocumentBundle(),
+            new SN\ContactBundle\SNContactBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
