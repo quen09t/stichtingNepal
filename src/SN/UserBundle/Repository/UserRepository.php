@@ -10,4 +10,22 @@ namespace SN\UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    function findEmails($role){
+        $qb = $this->createQueryBuilder('u')
+            ->where('u.roles LIKE :role')
+            ->setParameter('role', '%"'.$role.'"%')
+            ->getQuery()->getResult();
+
+        $emailArray = [];
+        $emailString = "";
+
+        foreach ($qb as $user){
+            $emailArray[] = $user->getEmail();
+            $emailString.="'".$user->getEmail()."',";
+        }
+
+        $emailString = rtrim($emailString, ",");
+        
+        return $emailArray;
+    }
 }

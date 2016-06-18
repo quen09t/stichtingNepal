@@ -1,4 +1,18 @@
 services:
-#    sn_contact.example:
-#        class: SN\ContactBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    sn_contact.email.message_notification:
+        class: SN\ContactBundle\Email\MessageNotification
+        arguments :
+            - "@mailer"
+
+
+    sn_contact.doctrine_listener.message_creation:
+        class: SN\ContactBundle\DoctrineListener\MessageCreationListener
+        arguments:
+            - "@sn_contact.email.message_notification"
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    sn_contact.email.get_address:
+        class: SN\ContactBundle\Email\GetAddress
+        arguments:
+            - "@doctrine.orm.entity_manager"

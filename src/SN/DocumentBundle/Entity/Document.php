@@ -127,7 +127,12 @@ class Document
      * @ORM\Column(name="documentName", type="string", length=255, nullable=true)
      */
     private $documentName;
-    
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SN\DocumentBundle\Entity\Category")
+     */
+    private $category;
     
 
 
@@ -217,5 +222,29 @@ class Document
     public function getDocumentName()
     {
         return $this->documentName;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \SN\DocumentBundle\Entity\Category $category
+     *
+     * @return Document
+     */
+    public function setCategory(\SN\DocumentBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \SN\DocumentBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

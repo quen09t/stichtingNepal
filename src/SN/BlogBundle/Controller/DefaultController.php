@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use SN\BlogBundle\Entity\Post;
 use SN\BlogBundle\Entity\Image;
 use SN\BlogBundle\Form\AddPostType;
+use SN\ContactBundle\Email\GetAddress;
 
 class DefaultController extends Controller
 {
@@ -29,6 +30,21 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
+
+            $getAddress = $this->get('sn_contact.email.get_address');
+            $visitorEmail = $getAddress->getAddress("ROLE_SUPER_ADMIN");
+
+
+
+            $message = new \Swift_Message();
+            $message->setSubject("New blog post : ".$post->getTitle())
+                ->setFrom('stichtingnepaltest@gmail.com')
+                ->addTo('p87440@hotmail.fr')
+                ->setBcc($visitorEmail)
+                ->setBody($post->getContent()."test");
+            
+            $this->get('mailer')->send($message);
+
 
             return $this->redirectToRoute('sn_blog_homepage');
         }

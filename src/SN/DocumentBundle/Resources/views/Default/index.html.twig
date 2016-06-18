@@ -1,7 +1,12 @@
 {% extends 'SNCoreBundle::layout.html.twig' %}
 {% block content %}
     <h2>Documents</h2>
-{% for document in documents %}
-    <li><a href="{{ asset(document.webPath) }}">{{ document.documentName }}</a> {{ document.description }} </li>
-{% endfor %}
+    {% for category in categories %}
+        <h3>{{ category.name }}</h3>
+        {% for document in documents %}
+            {% if document.category.id == category.id %}
+                <li><a href="{{ asset(document.webPath) }}">{{ document.documentName }}</a>  {{ document.description }}</li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 {%  endblock %}

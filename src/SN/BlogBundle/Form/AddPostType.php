@@ -21,8 +21,8 @@ class AddPostType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('content', TextareaType::class)
-            ->add('link', TextType::class)
-            ->add('image', ImageType::class)
+            ->add('link', TextType::class, array('required'=>false))
+            ->add('image', ImageType::class, array('required'=>false))
             ->add('save', SubmitType::class)
         ;
     }

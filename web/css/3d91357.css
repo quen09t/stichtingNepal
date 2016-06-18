@@ -9,9 +9,6 @@ body {
 #pageContainer{
     flex: 1 100%;
 }
-#content {
-    flex: 2 0px;
-}
 
 #userBanner {
     order: 1;
@@ -19,6 +16,7 @@ body {
     background-size:100% 100px ;
     border-bottom: 2px solid black;
     height:100px;
+    background-color: RGBA(255,255,255,0.5);
 }
 #pageContainer {
     order: 2;
@@ -32,20 +30,31 @@ footer {
     border-top: 2px solid black;
     height:100px;
     justify-content: space-around;
+    background-color: RGBA(255,255,255,0.5);
+
 }
 #sidebar {
     flex:1;
     display: flex;
     flex-flow: column nowrap;
     border-right: 2px solid black;
+    background-color: RGBA(255,255,255,0.5);
+
+
 }
 #content {
-    flex:9;
+    flex:7;
     padding: 25px;
+    min-width: 310px;
+    box-sizing: border-box;
 }
 
-#content {
-    flex:9
+#rightSide {
+    flex:4;
+    border-left:2px solid black;
+    padding-left:3px;
+    box-sizing: border-box;
+    min-width: 250px;
 }
 footer .footerImg img{
 
@@ -78,12 +87,17 @@ footer .footerImg img{
 
 .backGroup {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     border: 1px inset gray;
     padding: 5px;
     margin-bottom: 5px;
     box-sizing: border-box;
     background-color: #c9c9c9;
+}
+.backGroupTitle{
+    width:100%;
+    font-size:1.5em;
+    text-align: center;
 }
 .backItem {
     box-sizing: border-box;
@@ -99,10 +113,10 @@ footer .footerImg img{
 }
 .backItem a {
     text-decoration: none !important;
-    font-size: 1.5em !important;
+    font-size: 1.2em !important;
     font-weight:bold !important;
     color: black !important;
-
+    display: block;
 }
 .button {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -119,7 +133,6 @@ footer .footerImg img{
 
 .button a {
     color:#000000;
-    font-family:Arial;
     font-size:10px;
     font-weight:bold;
     padding:3px 12px;
@@ -212,15 +225,23 @@ table th, table td {
     padding: 3px;
 }
 
-#content {
+body {
     background-image: url('../../bundles/sncore/images/NepalMap.png');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    font-family: 'Ubuntu', sans-serif;
 }
+
+
+p {
+    text-indent: 10px;
+}
+
 .sidebarItem a {
     text-decoration: none;
     color: black;
+    display: block;
 }
 
 .sidebarItem {
@@ -240,7 +261,6 @@ table th, table td {
     display:inline-block;
     cursor:pointer;
     color:#777777;
-    font-family:Arial;
     font-size:15px;
     font-weight:bold;
     padding:6px 24px;
@@ -275,17 +295,17 @@ table th, table td {
     border: 1px solid black;
     padding: 5px;
 }
+
+#UserContainer table{
+    margin: 2% auto;
+}
 #UserContainer table td{
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin:0;
-    padding: 5px 0px;
+    padding: 5px 5px;
 }
-#UserContainer label{
-    padding:5px 10px;
-    margin: -1px 0px;
-}
-#UserContainer label:hover{
+#UserContainer .roleCell:hover{
     background-color: #0088CC;
     cursor: hand;
 }
@@ -302,33 +322,63 @@ table th, table td {
 .activeRole {
     background-color: #99CDD8;
     padding: 5px;
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 .radioRole {
     display: none;
 }
 
 .blogImage {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 300px;
+    width: 50%;
+    max-height: 300px;
     float: left;
+    margin:0 5px 5px 0;
+}
+.blogImageSmall {
+    margin: 5px 10%;
+    max-width: 80%;
 }
 
 .post {
     margin: 15px;
     padding: 15px;
     border: 2px solid black;
+    border-radius: 5px;
     min-height: 450px;
     display: flex;
     flex-flow: row nowrap;
+    background-color: RGBA(255,255,255,0.5);
 }
 
 .post h3 {
     text-align: center;
     width: 100%;
 }
-.postSideBar {
+.blogSideBar {
     flex:1;
 }
 .postContent{
     flex: 5;
+}
+
+@media (max-width: 1100px){
+    .blogImage {
+        width: 50%;
+        max-width: 250px;
+        max-height: 250px;
+        float: left;
+    }
+    .post {
+        flex-flow: column nowrap;
+    }
+    .blogSideBar {
+        order:2;
+    }
+    .post {
+        margin:5px;
+        padding: 5px;
+    }
 }

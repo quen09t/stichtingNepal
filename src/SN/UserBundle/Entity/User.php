@@ -5,11 +5,13 @@ namespace SN\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
+
 /**
  * User
  *
  * @ORM\Table(name="sn_user")
  * @ORM\Entity(repositoryClass="SN\UserBundle\Repository\UserRepository")
+ * 
  */
 class User extends BaseUser
 {
@@ -32,6 +34,8 @@ class User extends BaseUser
     {
         return $this->id;
     }
+    
+    
 
 
 }

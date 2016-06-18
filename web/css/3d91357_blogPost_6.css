@@ -1,25 +1,52 @@
 .blogImage {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 300px;
+    width: 50%;
+    max-height: 300px;
     float: left;
+    margin:0 5px 5px 0;
+}
+.blogImageSmall {
+    margin: 5px 10%;
+    max-width: 80%;
 }
 
 .post {
     margin: 15px;
     padding: 15px;
     border: 2px solid black;
+    border-radius: 5px;
     min-height: 450px;
     display: flex;
     flex-flow: row nowrap;
+    background-color: RGBA(255,255,255,0.5);
 }
 
 .post h3 {
     text-align: center;
     width: 100%;
 }
-.postSideBar {
+.blogSideBar {
     flex:1;
 }
 .postContent{
     flex: 5;
+}
+
+@media (max-width: 1100px){
+    .blogImage {
+        width: 50%;
+        max-width: 250px;
+        max-height: 250px;
+        float: left;
+    }
+    .post {
+        flex-flow: column nowrap;
+    }
+    .blogSideBar {
+        order:2;
+    }
+    .post {
+        margin:5px;
+        padding: 5px;
+    }
 }

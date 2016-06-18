@@ -3,21 +3,21 @@ sn_user_homepage:
     defaults: { _controller: SNUserBundle:Default:index }
 
 sn_user_view:
-    path: /view/
+    path: /back/view/
     defaults: { _controller: SNUserBundle:Default:view }
 
 sn_user_edit:
-    path: /edit/{id}
+    path: /back/edit/{id}
     defaults: { _controller: SNUserBundle:Default:edit }
 
 sn_user_delete:
-    path: /delete/{id}
+    path: /back/delete/{id}
     defaults: { _controller: SNUserBundle:Default:delete }
 
 sn_user_changeRole:
-    path: /changeRole/
+    path: /back/changeRole/
     defaults: { _controller: SNUserBundle:Default:changeRole }
 
 sn_user_changePassword:
-    path: /changePassword/{id}
+    path: /back/changePassword/{id}
     defaults : { _controller: SNUserBundle:Default:changePassword}

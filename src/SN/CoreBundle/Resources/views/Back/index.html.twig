@@ -1,19 +1,23 @@
 {%  extends 'SNCoreBundle::layout.html.twig' %}
 {% block content %}
-    <div class="backGroup">
-        <span class="backItem"><a href="{{ path('sn_link_add') }}">Add Link</a></span>
-        <span class="backItem"><a href="{{ path('sn_link_view') }}">Delete/Edit Link</a></span>
+    <div class="backGroup"><span class="backGroupTitle">Links</span>
+        <span class="backItem"><a href="{{ path('sn_link_add') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_link_view') }}">Delete/Edit</a></span>
     </div>
-    <div class="backGroup">
-        <span class="backItem"><a href="{{ path('sn_blog_add') }}">Add Blog Post</a></span>
-        <span class="backItem"><a href="{{ path('sn_blog_view') }}">Delete/Edit Blog Post</a></span>
+    <div class="backGroup"><span class="backGroupTitle">Blog Posts</span>
+        <span class="backItem"><a href="{{ path('sn_blog_add') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_blog_view') }}">Delete/Edit</a></span>
     </div>
-    <div class="backGroup">
-        <span class="backItem"><a href="{{ path('sn_document_add') }}">Add Document</a></span>
-        <span class="backItem"><a href="{{ path('sn_document_view') }}">Delete/Edit Document</a></span>
+    <div class="backGroup"><span class="backGroupTitle">Documents</span>
+        <span class="backItem"><a href="{{ path('sn_document_add') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_document_view') }}">Delete/Edit</a></span>
+    </div>
+    <div class="backGroup"><span class="backGroupTitle">Document Categories</span>
+        <span class="backItem"><a href="{{ path('sn_document_add_category') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_document_view_category') }}">Delete/Edit</a></span>
     </div>
     {% if is_granted('ROLE_SUPER_ADMIN') %}
-    <div class="backGroup">
+    <div class="backGroup"><span class="backGroupTitle">Users</span>
         <span class="backItem"><a href="{{ path('sn_user_view') }}">Manage Users</a></span>
     </div>
     {% endif %}

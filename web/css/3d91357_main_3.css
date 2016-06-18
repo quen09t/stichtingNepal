@@ -13,7 +13,6 @@
 
 .button a {
     color:#000000;
-    font-family:Arial;
     font-size:10px;
     font-weight:bold;
     padding:3px 12px;
@@ -106,9 +105,15 @@ table th, table td {
     padding: 3px;
 }
 
-#content {
+body {
     background-image: url('../../bundles/sncore/images/NepalMap.png');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+p {
+    text-indent: 10px;
 }

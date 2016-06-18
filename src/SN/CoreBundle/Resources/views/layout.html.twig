@@ -70,10 +70,11 @@
             {% endblock %}
         </div>
         <div id="rightSide">
-            <h2>Latest post</h2>
-            {{ render(controller('SNBlogBundle:Default:newest')) }}
+        {% block rightSide %}
+        {% endblock %}
             <h2>Sponsors</h2>
         </div>
+
     </div>
     <footer>
         <span class="footerImg">
@@ -81,11 +82,13 @@
             <img src="{{ asset_url }}" alt="anbi" />
             {% endimage %}
         </span>
+        <a href="www.cbf.nl">
         <span class="footerImg">
             {% image '@SNCoreBundle/Resources/public/images/footer_cbf.png' %}
             <img src="{{ asset_url }}" alt="cbf" />
             {% endimage %}
         </span>
+        </a>
         <span class="footerImg">
             {% image '@SNCoreBundle/Resources/public/images/footer_ganzen.png' %}
             <img src="{{ asset_url }}" alt="wilde ganzen" />

@@ -94,3 +94,7 @@
         De jaarrekening van Stichting Nepal zelf wordt jaarlijks beoordeeld door GIBO Accountants en Adviseurs te Harlingen.</p>    <!-- end .content -->
 
 {% endblock %}
+{% block rightSide %}
+        <h2>Latest post</h2>
+        {{ render(controller('SNBlogBundle:Default:newest')) }}
+{% endblock %}
