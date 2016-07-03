@@ -1,3 +1,7 @@
+sn_album:
+    resource: "@SNAlbumBundle/Resources/config/routing.yml"
+    prefix:   /album/
+
 sn_contact:
     resource: "@SNContactBundle/Resources/config/routing.yml"
     prefix:   /contact/

@@ -1,0 +1,9 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+{% for album in albums %}
+    <h3>{{ album.name }}</h3>
+    {% for image in album.images %}
+        <p>image</p>
+    {% endfor %}
+{%  endfor %}
+{% endblock %}

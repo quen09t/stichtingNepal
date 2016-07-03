@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new SN\LinkBundle\SNLinkBundle(),
             new SN\DocumentBundle\SNDocumentBundle(),
             new SN\ContactBundle\SNContactBundle(),
+            new SN\AlbumBundle\SNAlbumBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -16,6 +16,10 @@
         <span class="backItem"><a href="{{ path('sn_document_add_category') }}">Add</a></span>
         <span class="backItem"><a href="{{ path('sn_document_view_category') }}">Delete/Edit</a></span>
     </div>
+    <div class="backGroup"><span class="backGroupTitle">Albums</span>
+        <span class="backItem"><a href="{{ path('sn_album_add') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_album_view') }}">Delete/Edit</a></span>
+    </div>
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <div class="backGroup"><span class="backGroupTitle">Users</span>
         <span class="backItem"><a href="{{ path('sn_user_view') }}">Manage Users</a></span>

@@ -1,3 +1,4 @@
+{% if post %}
 <h3>{{ post.title }}</h3>
 {{ post.createdOn|date("F jS \\a\\t g:ia") }}<br/>
 {{ post.createdBy }}<br/>
@@ -8,3 +9,4 @@
     />
 {%  endif %}
 <p>{{ post.content }}</p>
+{% endif %}
