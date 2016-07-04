@@ -49,7 +49,7 @@ class DefaultController extends Controller
 
                 $user->removeRole("ROLE_SUPER_ADMIN");
                 $user->removeRole("ROLE_ADMIN");
-                $user->removeRole("ROLE_USER");
+                $user->removeRole("ROLE_VISITOR");
 
                 $user->addRole($role);
 
