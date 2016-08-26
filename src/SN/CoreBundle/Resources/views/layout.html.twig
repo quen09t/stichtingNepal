@@ -11,6 +11,8 @@
         'bundles/sncore/css/sideBar.css'
         'bundles/snuser/css/manageUsers.css'
         'bundles/snblog/css/blogPost.css'
+        'bundles/snalbum/css/album.css'
+        'bundles/snsponsor/css/sponsor.css'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Raleway|Ubuntu' rel='stylesheet' type='text/css'>
@@ -32,12 +34,10 @@
     <div id="userBanner" class="top">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <span id="username">{{ app.user.username }}</span>
+            <span class="userButton button"> <a href="{{ path('sn_user_profile') }}">
+                My profile </a></span>
             <span class="userButton button"> <a href="{{ path('fos_user_security_logout') }}">
-                Logout </a></span>
-            <span class="userButton button"> <a href=" {{ path('sn_user_edit', {'id' : app.user.id, }) }}">
-                Edit profile</a></span>
-            <span class="userButton button"> <a href=" {{ path('sn_user_changePassword', {'id' : app.user.id, }) }}">
-                Change password</a></span>
+                    Logout </a></span>
         {% else %}
             <span class="userButton button">
             <a href="{{ path('fos_user_security_login') }}">
@@ -73,6 +73,7 @@
         {% block rightSide %}
         {% endblock %}
             <h2>Sponsors</h2>
+            {{ render(controller('SNSponsorBundle:Default:sponsors')) }}
         </div>
 
     </div>
@@ -82,7 +83,7 @@
             <img src="{{ asset_url }}" alt="anbi" />
             {% endimage %}
         </span>
-        <a href="www.cbf.nl">
+        <a href="http://www.cbf.nl">
         <span class="footerImg">
             {% image '@SNCoreBundle/Resources/public/images/footer_cbf.png' %}
             <img src="{{ asset_url }}" alt="cbf" />

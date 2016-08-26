@@ -21,3 +21,7 @@ sn_user_changeRole:
 sn_user_changePassword:
     path: /back/changePassword/{id}
     defaults : { _controller: SNUserBundle:Default:changePassword}
+
+sn_user_profile:
+    path: /myprofile/
+    defaults: { _controller: SNUserBundle:Default:myProfile}

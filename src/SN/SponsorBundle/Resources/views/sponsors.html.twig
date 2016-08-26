@@ -1,0 +1,12 @@
+<div id="sponsorContainer">
+{% for sponsor in sponsors %}
+    {% if sponsor.image.webPath is defined %}
+    <a href="{{ sponsor.url }}"><div class="sponsor">
+                <img class="sponsorImage"
+                     src="{{ asset(sponsor.image.webPath) }}"
+                />
+    </div>
+    </a>
+    {%  endif %}
+{% endfor %}
+</div>

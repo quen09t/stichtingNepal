@@ -1,0 +1,7 @@
+.albumImage {
+    max-width: 300px;
+}
+.albumImageContainer {
+    display:flex;
+    flex-flow:row wrap;
+}

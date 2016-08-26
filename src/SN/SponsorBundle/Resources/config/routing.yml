@@ -1,0 +1,19 @@
+sn_sponsor_homepage:
+    path:     /
+    defaults: { _controller: SNSponsorBundle:Default:sponsors }
+
+sn_sponsor_add:
+  path: /back/addSponsor/
+  defaults: { _controller: SNSponsorBundle:Default:addSponsor}
+
+sn_sponsor_view:
+  path: /back/viewSponsors/
+  defaults: { _controller: SNSponsorBundle:Default:view }
+
+sn_sponsor_delete:
+  path: /back/deleteSponsor/{id}
+  defaults: { _controller: SNSponsorBundle:Default:delete }
+
+sn_sponsor_edit:
+  path: /back/editSponsor/{id}
+  defaults: { _controller: SNSponsorBundle:Default:edit }

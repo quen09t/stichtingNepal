@@ -2,11 +2,13 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: easyAdmin/ }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    sn.blogbundle.post_images: /uploads/images/post
 
 framework:
     #esi:             ~
@@ -78,3 +80,10 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        post_images:
+            uri_prefix:         %sn.blogbundle.post_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/post

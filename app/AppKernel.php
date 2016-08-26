@@ -24,6 +24,9 @@ class AppKernel extends Kernel
             new SN\DocumentBundle\SNDocumentBundle(),
             new SN\ContactBundle\SNContactBundle(),
             new SN\AlbumBundle\SNAlbumBundle(),
+            new SN\SponsorBundle\SNSponsorBundle(),
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new \Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,1 +1,17 @@
 {% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+    <div class="albumContainer">
+        {% for album in albums %}
+            <h3>{{ album.name }}</h3>
+            <div class="albumImageContainer">
+                {% for image in album.images %}
+                    <div class="albumImage">
+                        <img class="blogImageSmall"
+                             src="{{ asset(image.webPath) }}"
+                        />
+                    </div>
+                {% endfor %}
+            </div>
+        {%  endfor %}
+    </div>
+{% endblock %}

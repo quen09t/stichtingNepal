@@ -20,6 +20,10 @@
         <span class="backItem"><a href="{{ path('sn_album_add') }}">Add</a></span>
         <span class="backItem"><a href="{{ path('sn_album_view') }}">Delete/Edit</a></span>
     </div>
+    <div class="backGroup"><span class="backGroupTitle">Sponsors</span>
+        <span class="backItem"><a href="{{ path('sn_sponsor_add') }}">Add</a></span>
+        <span class="backItem"><a href="{{ path('sn_sponsor_view') }}">Delete/Edit</a></span>
+    </div>
     {% if is_granted('ROLE_SUPER_ADMIN') %}
     <div class="backGroup"><span class="backGroupTitle">Users</span>
         <span class="backItem"><a href="{{ path('sn_user_view') }}">Manage Users</a></span>

@@ -12,7 +12,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SNAlbumBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $repo = $this->getDoctrine()->getRepository('SNAlbumBundle:Album');
+
+        $albums = $repo->findAll();
+
+        return $this->render('SNAlbumBundle:Default:index.html.twig', array('albums'=>$albums));
     }
     
     public function addAction(Request $request){

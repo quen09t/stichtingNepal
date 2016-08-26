@@ -21,7 +21,7 @@ class PostType extends AbstractType
             ->add('createdBy', TextType::class)
             ->add('createdOn', DateTimeType::class)
             ->add('updatedBy', TextType::class)
-            ->add('updatedOn', DateTimeType::class)
+            ->add('updatedAt', DateTimeType::class)
             ->add('title', TextType::class)
             ->add('content', TextType::class)
             ->add('link', TextType::class)

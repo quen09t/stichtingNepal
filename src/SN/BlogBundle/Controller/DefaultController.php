@@ -78,7 +78,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('sn_blog_homepage');
 
         $post->setUpdatedBy($this->getUser());
-        $post->setUpdatedOn( new \DateTime());
+        $post->setUpdatedAt( new \DateTime());
 
         $form = $this->createForm(AddPostType::class, $post);
 
