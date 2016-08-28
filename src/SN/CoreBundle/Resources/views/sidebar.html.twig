@@ -8,7 +8,4 @@
 <span class="sidebarItem"><a href=" {{ path('sn_contact_homepage') }}">Contact</a></span>
 
 <span class="sidebarItem" id="donate"><a href=" {{ path('sn_core_donate') }}">Donate</a></span>
-{%  if is_granted("ROLE_ADMIN") %}
-<span class="sidebarItem"><a href=" {{ path('sn_core_back') }}">BackOffice</a></span>
-{% endif %}
 

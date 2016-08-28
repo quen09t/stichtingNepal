@@ -3,12 +3,15 @@
 namespace SN\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Post
  *
  * @ORM\Table(name="sn_post")
  * @ORM\Entity(repositoryClass="SN\BlogBundle\Repository\PostRepository")
+ * @Vich\Uploadable
  */
 class Post
 {
@@ -22,9 +25,16 @@ class Post
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="SN\BlogBundle\Entity\Image", cascade={"persist"})
+     * @ORM\Column(type="string", length=255)
+     * @var string
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="post_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
     
     /**
      * @ORM\ManyToOne(targetEntity="SN\UserBundle\Entity\User")
@@ -49,7 +59,7 @@ class Post
      *
      * @ORM\Column(name="updatedOn", type="datetime", nullable=true)
      */
-    private $updatedOn;
+    private $updatedAt;
 
     /**
      * @var string
@@ -165,13 +175,13 @@ class Post
     /**
      * Set updatedOn
      *
-     * @param \DateTime $updatedOn
+     * @param \DateTime $updatedAt
      *
      * @return Post
      */
-    public function setUpdatedOn($updatedOn)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updatedOn = $updatedOn;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -181,9 +191,9 @@ class Post
      *
      * @return \DateTime
      */
-    public function getUpdatedOn()
+    public function getUpdatedAt()
     {
-        return $this->updatedOn;
+        return $this->updatedAt;
     }
 
     /**
@@ -258,25 +268,29 @@ class Post
         return $this->link;
     }
 
-    /**
-     * Set image
-     *
-     * @param \SN\BlogBundle\Entity\Image $image
-     *
-     * @return Post
-     */
-    public function setImage(\SN\BlogBundle\Entity\Image $image = null)
+    public function setImageFile(File $image = null)
     {
-        $this->image = $image;
+        $this->imageFile = $image;
 
-        return $this;
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
     }
 
-    /**
-     * Get image
-     *
-     * @return \SN\BlogBundle\Entity\Image
-     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
     public function getImage()
     {
         return $this->image;

@@ -1,8 +1,0 @@
-{% extends 'SNCoreBundle::layout.html.twig' %}
-{% block content %}
-
-    {% for category in categories %}
-        <li>{{ category.name }} <a href="{{ path('sn_document_edit_category', {'id':category.id}) }}">Edit</a> </li>
-    {%  endfor %}
-
-{%  endblock %}

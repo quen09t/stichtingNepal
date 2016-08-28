@@ -1,0 +1,11 @@
+easy_admin:
+    entities:
+        Album:
+            class: SN\AlbumBundle\Entity\Album
+            label: 'Albums'
+            form:
+                fields:
+                    - name
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'SN\AlbumBundle\Form\ImageType' }}
+            list:
+                fields: ['id', 'name','images']

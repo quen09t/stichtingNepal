@@ -1,0 +1,4 @@
+sn_sponsor_homepage:
+    path:     /
+    defaults: { _controller: SNSponsorBundle:Default:sponsors }
+

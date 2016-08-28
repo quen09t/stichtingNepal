@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Document:
+            class: SN\DocumentBundle\Entity\Document
+            label: 'Documents'
+            list:
+                fields:
+                    - id
+                    - name
+                    - description
+                    - category
+                    - { property: 'document', type: 'image', base_path: %sn.documenbundle.document% }
+            form:
+                fields:
+                    - { property: 'name'}
+                    - { property: 'description', type: 'ckeditor', label: 'Description' }
+                    - { property: 'documentFile', type: 'vich_file' }
+                    - { property: 'category', type: 'entity', type_options: { class: 'SNDocumentBundle:Category' }}

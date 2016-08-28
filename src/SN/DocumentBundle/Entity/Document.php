@@ -3,101 +3,19 @@
 namespace SN\DocumentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Document
  *
  * @ORM\Table(name="sn_document")
  * @ORM\Entity(repositoryClass="SN\DocumentBundle\Repository\DocumentRepository")
- * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  * 
  */
 class Document
 {
-    private $file;
-
-    private $tempFilname;
-
-    public function setFile(UploadedFile $file){
-        $this->file = $file;
-
-        if(null !== $this->url){
-            $this->tempFilname = $this->url;
-
-            $this->url = null;
-            $this->alt = null;
-        }
-    }
-
-    /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload(){
-        if (null === $this->file){
-            return;
-        }
-
-        $this->url = $this->file->guessExtension();
-    }
-
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
-
-    public function upload()
-    {
-        if (null === $this->file) {
-            return;
-        }
-
-        if (null !== $this->tempFilname){
-            $oldFile = $this->getUploadDir().'/'.$this->id.'.'.$this->tempFilname;
-            if (file_exists($oldFile))
-                unlink($oldFile);
-        }
-
-        $this->file->move(
-            $this->getUploadDir(),
-            $this->id.'.'.$this->url
-        );
-    }
-
-    /**
-     * @ORM\PreRemove()
-     */
-    public function preRemoveUpload() {
-        $this->tempFilname = $this->getUploadDir().'/'.$this->id.'.'.$this->url;
-    }
-
-    /**
-     * @ORM\PostRemove
-     */
-    public function removeUpload() {
-        if(file_exists($this->tempFilname)){
-            unlink($this->tempFilname);
-        };
-    }
-
-    public function getUploadDir()
-    {
-        return 'uploads/documents';
-    }
-
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    private $webPath;
-
-    public function getWebPath()
-
-    {
-        return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
-    }
     /**
      * @var int
      *
@@ -107,12 +25,6 @@ class Document
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=255)
-     */
-    private $url;
 
     /**
      * @var string
@@ -124,9 +36,9 @@ class Document
     /**
      * @var string
      *
-     * @ORM\Column(name="documentName", type="string", length=255, nullable=true)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
-    private $documentName;
+    private $name;
 
 
     /**
@@ -134,17 +46,19 @@ class Document
      */
     private $category;
     
-
-
-    public function getFile()
-
-    {
-        return $this->file;
-    }
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $document;
 
     /**
-     * Get id
-     *
+     * @Vich\UploadableField(mapping="documents", fileNameProperty="document")
+     * @var File
+     */
+    private $documentFile;
+
+    /**
      * @return int
      */
     public function getId()
@@ -153,46 +67,14 @@ class Document
     }
 
     /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Document
+     * @param int $id
      */
-    public function setUrl($url)
+    public function setId($id)
     {
-        $this->url = $url;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Document
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
      * @return string
      */
     public function getDescription()
@@ -201,50 +83,78 @@ class Document
     }
 
     /**
-     * Set documentName
-     *
-     * @param string $documentName
-     *
-     * @return Document
+     * @param string $description
      */
-    public function setDocumentName($documentName)
+    public function setDescription($description)
     {
-        $this->documentName = $documentName;
-
-        return $this;
+        $this->description = $description;
     }
 
     /**
-     * Get documentName
-     *
      * @return string
      */
-    public function getDocumentName()
+    public function getName()
     {
-        return $this->documentName;
+        return $this->name;
     }
 
     /**
-     * Set category
-     *
-     * @param \SN\DocumentBundle\Entity\Category $category
-     *
-     * @return Document
+     * @param string $documentName
      */
-    public function setCategory(\SN\DocumentBundle\Entity\Category $category = null)
+    public function setName($name)
     {
-        $this->category = $category;
-
-        return $this;
+        $this->name = $name;
     }
 
     /**
-     * Get category
-     *
-     * @return \SN\DocumentBundle\Entity\Category
+     * @return mixed
      */
     public function getCategory()
     {
         return $this->category;
     }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param string $document
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+    }
+
+    /**
+     * @return File
+     */
+    public function getDocumentFile()
+    {
+        return $this->documentFile;
+    }
+
+    /**
+     * @param File $documentFile
+     */
+    public function setDocumentFile($documentFile)
+    {
+        $this->documentFile = $documentFile;
+    }
+
+
+
+
 }

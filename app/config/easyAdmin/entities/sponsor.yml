@@ -1,0 +1,16 @@
+easy_admin:
+    entities:
+        Sponsor:
+            class: SN\SponsorBundle\Entity\Sponsor
+            label: 'Sponsors'
+            list:
+                fields:
+                    - id
+                    - name
+                    - url
+                    - { property: 'image', type: 'image', base_path: %sn.sponsorbundle.sponsor_images% }
+            form:
+                fields:
+                    - { property: 'name'}
+                    - { property: 'url', label: 'URL' }
+                    - { property: 'imageFile', type: 'vich_image' }

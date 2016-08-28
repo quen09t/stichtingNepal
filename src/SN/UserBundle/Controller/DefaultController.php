@@ -11,21 +11,12 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('SNUserBundle:Default:index.html.twig');
-    }
 
-    public function viewAction() {
-        $repo = $this->getDoctrine()->getRepository('SNUserBundle:User');
-        $users = $repo->findAll();
-        return $this->render('SNUserBundle:Default:view.html.twig', array('users'=>$users));
-    }
-    
+
     public function editAction(Request $request, $id){
         $repo = $this->getDoctrine()->getRepository('SNUserBundle:User');
         $post = $repo->find($id);
-        
+
 
         $form = $this->createForm(EditProfileType::class, $post);
 
@@ -49,7 +40,7 @@ class DefaultController extends Controller
 
                 $user->removeRole("ROLE_SUPER_ADMIN");
                 $user->removeRole("ROLE_ADMIN");
-                $user->removeRole("ROLE_USER");
+                $user->removeRole("ROLE_VISITOR");
 
                 $user->addRole($role);
 
@@ -92,5 +83,9 @@ class DefaultController extends Controller
         }
 
         return $this->redirectToRoute('sn_core_homepage');
+    }
+    
+    public function myProfileAction() {
+        return $this->render('SNUserBundle:Default:profile.html.twig');
     }
 }

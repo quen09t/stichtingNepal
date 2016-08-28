@@ -1,3 +1,7 @@
+sn_sponsor:
+    resource: "@SNSponsorBundle/Resources/config/routing.yml"
+    prefix:   /sponsor/
+
 sn_album:
     resource: "@SNAlbumBundle/Resources/config/routing.yml"
     prefix:   /album/
@@ -28,3 +32,8 @@ sn_user:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type: annotation
+    prefix: /admin

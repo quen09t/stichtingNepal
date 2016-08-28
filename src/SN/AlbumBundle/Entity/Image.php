@@ -2,20 +2,23 @@
 
 namespace SN\AlbumBundle\Entity;
 
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Image
  *
  * @ORM\Table(name="sn_album_image")
  * @ORM\Entity(repositoryClass="SN\AlbumBundle\Repository\ImageRepository")
- * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  */
 class Image
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -26,34 +29,29 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
-    private $path;
+    private $image;
 
     /**
-     * @var string
+     * @var File
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Vich\UploadableField(mapping="album_images", fileNameProperty="image")
      */
-    private $name;
+    private $imageFile;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(name="size", type="integer")
+     * @ORM\Column(type="datetime", length=255)
      */
-    private $size;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="SN\AlbumBundle\Entity\Album", inversedBy="image")
-     */
-    private $album;
+    private $updatedAt;
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -61,116 +59,44 @@ class Image
     }
 
     /**
-     * Set path
-     *
-     * @param string $path
-     *
+     * @param File|null $image
      * @return Image
      */
-    public function setPath($path)
+    public function setImageFile(File $image = null)
     {
-        $this->path = $path;
+        $this->imageFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
 
     /**
-     * Get path
-     *
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $image
+     * @return Image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
-    public function getPath()
+    public function getImage()
     {
-        return $this->path;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Image
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set size
-     *
-     * @param integer $size
-     *
-     * @return Image
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return integer
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * Set album
-     *
-     * @param Album $album
-     *
-     * @return Image
-     */
-    public function setAlbum(Album $album = null)
-    {
-        $this->album = $album;
-
-        return $this;
-    }
-
-    /**
-     * Get album
-     *
-     * @return Album
-     */
-    public function getAlbum()
-    {
-        return $this->album;
-    }
-
-    public function getUploadDir()
-    {
-        return 'uploads/img';
-    }
-
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    private $webPath;
-
-    public function getWebPath()
-
-    {
-        return $this->getUploadDir().'/'.$this->getPath();
+        return $this->image;
     }
 }

@@ -12,6 +12,8 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username
 
+    access_denied_url: /login
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -33,6 +35,6 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
-        - { path: ^/user/back(.*), roles: ROLE_SUPER_ADMIN }
-        - { path: ^/back, roles: ROLE_ADMIN }
-        - { path: ^/\w+/back(.*), roles: ROLE_ADMIN }
+       # - { path: ^/user/back(.*), roles: ROLE_SUPER_ADMIN }
+       - { path: ^/admin, roles: ROLE_ADMIN }
+       # - { path: ^/\w+/back(.*), roles: ROLE_ADMIN }

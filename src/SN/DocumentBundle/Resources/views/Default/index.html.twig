@@ -5,7 +5,7 @@
         <h3>{{ category.name }}</h3>
         {% for document in documents %}
             {% if document.category.id == category.id %}
-                <li><a href="{{ asset(document.webPath) }}">{{ document.documentName }}</a>  {{ document.description }}</li>
+                <li><a href="/uploads/files/document/{{ document.document }}">{{ document.name }}</a>  {{ document.description | raw }}</li>
             {% endif %}
         {% endfor %}
     {% endfor %}

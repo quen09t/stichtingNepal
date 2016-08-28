@@ -4,17 +4,12 @@ namespace SN\AlbumBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use SN\AlbumBundle\Entity\FileUploader;
-use SN\AlbumBundle\Entity\Image;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Album
  *
  * @ORM\Table(name="sn_album")
- * @ORM\Entity(repositoryClass="SN\AlbumBundle\Repository\AlbumRepository")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity()
  */
 class Album
 {
@@ -35,28 +30,22 @@ class Album
     private $name;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateCreated", type="datetime")
+     * @return mixed
      */
-    private $dateCreated;
+    public function getName()
+    {
+        return $this->name;
+    }
 
     /**
-     * @var File
-     *
-     * @ORM\OneToMany(targetEntity="SN\AlbumBundle\Entity\Image", mappedBy="album", cascade={"persist"})
+     * @param mixed $name
      */
-    public $images;
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
     /**
-     * @var ArrayCollection
-     */
-    private $uploadedImages;
-
-
-    /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -65,126 +54,40 @@ class Album
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Album
+     * @param int $id
      */
-    public function setName($name)
+    public function setId($id)
     {
-        $this->name = $name;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get name
+     * @var Image[]|ArrayCollection
      *
-     * @return string
+     * @ORM\ManyToMany(targetEntity="SN\AlbumBundle\Entity\Image", cascade={"persist"})
+     * @ORM\JoinTable(name="sn_album_images",
+     *      joinColumns={@ORM\JoinColumn(name="album_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
+     * )
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $images;
+
 
     /**
-     * Set dateCreated
-     *
-     * @param \DateTime $dateCreated
-     *
-     * @return Album
+     * Album constructor.
      */
-    public function setDateCreated($dateCreated)
-    {
-        $this->dateCreated = $dateCreated;
-
-        return $this;
-    }
-
-    /**
-     * Get dateCreated
-     *
-     * @return \DateTime
-     */
-    public function getDateCreated()
-    {
-        return $this->dateCreated;
-    }
-
     public function __construct()
     {
         $this->images = new ArrayCollection();
     }
 
-    public function removeImage($image){
-        $this->images->removeElement($image);
-    }
-
     /**
      * Get images
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Image[]|ArrayCollection
      */
     public function getImages()
     {
         return $this->images;
-    }
-
-    public function getUploadDir()
-    {
-        return 'uploads/img';
-    }
-
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    /**
-     * @ORM\PreFlush()
-     */
-    public function upload()
-    {
-
-        foreach($this->uploadedImages as $uploadedImage)
-        {
-            $image = new Image();
-            $path = $this->getUploadDir();
-            
-            /*
-             * These lines could be moved to the File Class constructor to factorize
-             * the File initialization and thus allow other classes to own Files
-             */
-            $path = sha1(uniqid(mt_rand(), true)).'.'.$uploadedImage->guessExtension();
-            $image->setPath($path);
-            $image->setSize($uploadedImage->getClientSize());
-            $image->setName($uploadedImage->getClientOriginalName());
-            $image->setAlbum($this);
-
-
-
-            $uploadedImage->move($this->getUploadRootDir(), $path);
-
-            $this->getImages()->add($image);
-
-
-            unset($uploadedImage);
-        }
-    }
-
-    /**
-     * Add image
-     *
-     * 
-     * @param File $image
-     *
-     * @return Album
-     */
-    public function addImage(File $image)
-    {
-        $this->uploadedImages[] = $image;
-
-        return $this;
     }
 }

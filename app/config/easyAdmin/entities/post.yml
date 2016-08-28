@@ -1,0 +1,24 @@
+easy_admin:
+    entities:
+        Post:
+            class: SN\BlogBundle\Entity\Post
+            label: 'Posts'
+            list:
+                fields:
+                    - id
+                    - public
+                    - title
+                    - { property: 'image', type: 'image', base_path: %sn.blogbundle.post_images% }
+            show:
+                fields:
+                    - id
+                    - public
+                    - title
+                    - content
+                    - { property: 'image', type: 'image', base_path: %sn.blogbundle.post_images% }
+            form:
+                fields:
+                    - { property: 'title'}
+                    - { property: 'public', label: 'Published' }
+                    - { property: 'content', type: 'ckeditor'}
+                    - { property: 'imageFile', type: 'vich_image' }

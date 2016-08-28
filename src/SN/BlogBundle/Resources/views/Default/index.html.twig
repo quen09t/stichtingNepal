@@ -2,11 +2,8 @@
 {% block content %}
 <h3> Blog </h3>
 
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <a href=" {{ path('sn_blog_add') }}">Add</a>
-    {% endif %}
-
     {% for post in posts %}
+        {% if post.public %}
         <div class="post">
             <div class="blogSideBar">
                 Created by {{ post.createdBy  }} <br/> {{ post.createdOn|date("F jS \\a\\t g:ia") }} <br/>
@@ -17,14 +14,15 @@
             <div class="postContent">
                 <h3>{{ post.title }}</h3>
 
-                <p>{% if post.image.webPath is defined %}
+                <p>{% if post.image is defined %}
                         <img class="blogImage"
-                             src="{{ asset(post.image.webPath) }}"
-                             alt="{{ post.image.alt }}"
+                             src="/uploads/images/post/{{ post.image }}"
+                             alt="{{ post.image }}"
                         />
-                    {%  endif %}{{ post.content }}</p>
+                    {%  endif %}{{ post.content | raw }}</p>
                 <a href=" {{ post.link }}">{{ post.link }}</a>
             </div>
         </div>
+        {% endif %}
     {% endfor %}
 {%  endblock %}

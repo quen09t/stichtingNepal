@@ -1,0 +1,13 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{%  block content %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <h3>{{ app.user.username }}</h3>
+        <span class="userButton button"> <a href=" {{ path('sn_user_edit', {'id' : app.user.id, }) }}">
+                Edit profile</a></span>
+        <span class="userButton button"> <a href=" {{ path('sn_user_changePassword', {'id' : app.user.id, }) }}">
+                Change password</a></span>
+    {% else %}
+        <h3>Oops</h3>
+        <p>There seems to be an error please log in again</p>
+    {% endif %}
+{% endblock %}

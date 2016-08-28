@@ -1,0 +1,10 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'Post', icon: 'edit' }
+            - { entity: 'Link', icon: 'link'}
+            - { entity: 'Sponsor', icon: 'eur' }
+            - { entity: 'Document', icon: 'file-word-o'}
+            - { entity: 'Document_Category', icon: 'sitemap'}
+            - { entity: 'Album', icon: 'file-image-o' }
+            - { entity: 'User', icon: 'users' }

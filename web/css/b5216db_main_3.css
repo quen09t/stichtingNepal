@@ -1,0 +1,119 @@
+.button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    display:inline-block;
+    cursor:pointer;
+
+}
+
+.button a {
+    color:#000000;
+    font-size:10px;
+    font-weight:bold;
+    padding:3px 12px;
+    text-decoration:none;
+}
+
+.button:active {
+    position:relative;
+    top:1px;
+}
+
+.userButton {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    border:1px solid #dcdcdc;
+}
+.userButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}
+
+.deleteButton {
+
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #ba1f3e));
+    background:-moz-linear-gradient(top, #ededed 5%, #ba1f3e 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #ba1f3e 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #ba1f3e 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #ba1f3e 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #ba1f3e 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ba1f3e',GradientType=0);
+    border:1px solid #f00020;
+
+}
+.deleteButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ba1f3e), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #ba1f3e 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #ba1f3e 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #ba1f3e 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #ba1f3e 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #ba1f3e 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ba1f3e', endColorstr='#ededed',GradientType=0);
+    background-color:#ba1f3e;
+}
+
+.editButton {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #1f99b8));
+    background:-moz-linear-gradient(top, #ededed 5%, #1f99b8 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #1f99b8 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #1f99b8 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #1f99b8 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #1f99b8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#1f99b8',GradientType=0);
+    border:1px solid #737fc7;
+}
+.editButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1f99b8), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #1f99b8 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #1f99b8 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #1f99b8 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #1f99b8 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #1f99b8 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f99b8', endColorstr='#ededed',GradientType=0);
+    background-color:#1f99b8;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #c5fffd;
+}
+tbody tr:nth-child(even){
+    background-color: white;
+}
+table {
+    border: 1px solid black;
+}
+table tr {
+    border: 1px solid black;
+}
+table th, table td {
+    padding: 3px;
+}
+
+body {
+    background-image: url('../../bundles/sncore/images/NepalMap.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+p {
+    text-indent: 10px;
+}

@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+        Link:
+            class: SN\LinkBundle\Entity\Link
+            label: 'Links'
+            list:
+                fields:
+                    - id
+                    - description
+                    - url
+            form:
+                fields:
+                    - { property: 'description', type: 'ckeditor'}
+                    - { property: 'url' }
