@@ -2614,6 +2614,204 @@
         ]
     },
     {
+        "name": "vich/uploader-bundle",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dustin10/VichUploaderBundle.git",
+            "reference": "0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c",
+            "reference": "0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c",
+            "shasum": ""
+        },
+        "require": {
+            "jms/metadata": "~1.5",
+            "ocramius/proxy-manager": "~1.0|~2.0",
+            "php": "~5.5|~7.0",
+            "symfony/dependency-injection": "~2.3|~3.0",
+            "symfony/finder": "~2.2|~3.0",
+            "symfony/framework-bundle": "~2.3|~3.0",
+            "symfony/property-access": "~2.5|~3.0"
+        },
+        "require-dev": {
+            "doctrine/doctrine-bundle": "~1.6",
+            "doctrine/mongodb-odm": "~1.0",
+            "doctrine/orm": "^2.2.3",
+            "ext-sqlite3": "*",
+            "knplabs/knp-gaufrette-bundle": "~0.3",
+            "matthiasnoback/symfony-dependency-injection-test": "~0.7",
+            "mikey179/vfsstream": "~1.2",
+            "oneup/flysystem-bundle": "~1.0",
+            "phpunit/phpunit": "~4.0",
+            "symfony/browser-kit": "~2.3|~3.0",
+            "symfony/css-selector": "~2.3|~3.0",
+            "symfony/dom-crawler": "~2.3|~3.0",
+            "symfony/form": "~2.3|~3.0",
+            "symfony/proxy-manager-bridge": "~2.3|~3.0",
+            "symfony/twig-bridge": "~2.3.10|~3.0",
+            "symfony/twig-bundle": "~2.3|~3.0",
+            "symfony/validator": "~2.3|~3.0",
+            "symfony/yaml": "^2.0.5|~3.0"
+        },
+        "suggest": {
+            "doctrine/doctrine-bundle": "~1.6",
+            "doctrine/mongodb-odm-bundle": "*",
+            "doctrine/orm": "^2.2.3",
+            "doctrine/phpcr-odm": "~1.0",
+            "knplabs/knp-gaufrette-bundle": "~0.3",
+            "symfony/yaml": "^2.0.5",
+            "willdurand/propel-eventdispatcher-bundle": "~1.2"
+        },
+        "time": "2016-07-14 21:22:59",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Vich\\UploaderBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dustin Dobervich",
+                "email": "ddobervich@gmail.com"
+            }
+        ],
+        "description": "Ease file uploads attached to entities",
+        "homepage": "https://github.com/dustin10/VichUploaderBundle",
+        "keywords": [
+            "file uploads",
+            "upload"
+        ]
+    },
+    {
+        "name": "egeloen/json-builder",
+        "version": "2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/egeloen/ivory-json-builder.git",
+            "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/c6afb2c53ac1070144d5d3330d5f86567b132d23",
+            "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=5.3.0",
+            "symfony/property-access": "~2.2|~3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "satooshi/php-coveralls": "~0.6",
+            "symfony/phpunit-bridge": "~2.7|~3.0"
+        },
+        "time": "2015-12-06 13:20:24",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ivory\\JsonBuilder\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            }
+        ],
+        "description": "JSON builder with escaping control for PHP 5.3+",
+        "keywords": [
+            "Escape",
+            "builder",
+            "json"
+        ]
+    },
+    {
+        "name": "egeloen/ckeditor-bundle",
+        "version": "4.0.4",
+        "version_normalized": "4.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
+            "reference": "2bfe162ab98236efc4d9ad13a5ecda8f877a54a3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/2bfe162ab98236efc4d9ad13a5ecda8f877a54a3",
+            "reference": "2bfe162ab98236efc4d9ad13a5ecda8f877a54a3",
+            "shasum": ""
+        },
+        "require": {
+            "egeloen/json-builder": "^1.0|^2.0",
+            "php": ">=5.3.3",
+            "symfony/dependency-injection": "^2.2|^3.0",
+            "symfony/form": "^2.2|^3.0",
+            "symfony/framework-bundle": "^2.2|^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0|^5.0",
+            "symfony/phpunit-bridge": "^2.7|^3.0",
+            "symfony/yaml": "^2.0.5|^3.0",
+            "twig/twig": "^1.12"
+        },
+        "suggest": {
+            "egeloen/form-extra-bundle": "Allows to load CKEditor asynchronously",
+            "twig/twig": "Allows to use Twig templates"
+        },
+        "time": "2016-07-31 16:06:19",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ivory\\CKEditorBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            }
+        ],
+        "description": "Provides a CKEditor integration for your Symfony2 Project.",
+        "keywords": [
+            "CKEditor"
+        ]
+    },
+    {
         "name": "twig/extensions",
         "version": "v1.3.0",
         "version_normalized": "1.3.0.0",
@@ -2819,204 +3017,6 @@
             "admin",
             "backend",
             "generator"
-        ]
-    },
-    {
-        "name": "vich/uploader-bundle",
-        "version": "1.2.0",
-        "version_normalized": "1.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/dustin10/VichUploaderBundle.git",
-            "reference": "0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c",
-            "reference": "0f40b0eabcc50732ec50fb5ce8adc15f8e5b055c",
-            "shasum": ""
-        },
-        "require": {
-            "jms/metadata": "~1.5",
-            "ocramius/proxy-manager": "~1.0|~2.0",
-            "php": "~5.5|~7.0",
-            "symfony/dependency-injection": "~2.3|~3.0",
-            "symfony/finder": "~2.2|~3.0",
-            "symfony/framework-bundle": "~2.3|~3.0",
-            "symfony/property-access": "~2.5|~3.0"
-        },
-        "require-dev": {
-            "doctrine/doctrine-bundle": "~1.6",
-            "doctrine/mongodb-odm": "~1.0",
-            "doctrine/orm": "^2.2.3",
-            "ext-sqlite3": "*",
-            "knplabs/knp-gaufrette-bundle": "~0.3",
-            "matthiasnoback/symfony-dependency-injection-test": "~0.7",
-            "mikey179/vfsstream": "~1.2",
-            "oneup/flysystem-bundle": "~1.0",
-            "phpunit/phpunit": "~4.0",
-            "symfony/browser-kit": "~2.3|~3.0",
-            "symfony/css-selector": "~2.3|~3.0",
-            "symfony/dom-crawler": "~2.3|~3.0",
-            "symfony/form": "~2.3|~3.0",
-            "symfony/proxy-manager-bridge": "~2.3|~3.0",
-            "symfony/twig-bridge": "~2.3.10|~3.0",
-            "symfony/twig-bundle": "~2.3|~3.0",
-            "symfony/validator": "~2.3|~3.0",
-            "symfony/yaml": "^2.0.5|~3.0"
-        },
-        "suggest": {
-            "doctrine/doctrine-bundle": "~1.6",
-            "doctrine/mongodb-odm-bundle": "*",
-            "doctrine/orm": "^2.2.3",
-            "doctrine/phpcr-odm": "~1.0",
-            "knplabs/knp-gaufrette-bundle": "~0.3",
-            "symfony/yaml": "^2.0.5",
-            "willdurand/propel-eventdispatcher-bundle": "~1.2"
-        },
-        "time": "2016-07-14 21:22:59",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Vich\\UploaderBundle\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Dustin Dobervich",
-                "email": "ddobervich@gmail.com"
-            }
-        ],
-        "description": "Ease file uploads attached to entities",
-        "homepage": "https://github.com/dustin10/VichUploaderBundle",
-        "keywords": [
-            "file uploads",
-            "upload"
-        ]
-    },
-    {
-        "name": "egeloen/json-builder",
-        "version": "2.0.1",
-        "version_normalized": "2.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/egeloen/ivory-json-builder.git",
-            "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/c6afb2c53ac1070144d5d3330d5f86567b132d23",
-            "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23",
-            "shasum": ""
-        },
-        "require": {
-            "ext-json": "*",
-            "php": ">=5.3.0",
-            "symfony/property-access": "~2.2|~3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "satooshi/php-coveralls": "~0.6",
-            "symfony/phpunit-bridge": "~2.7|~3.0"
-        },
-        "time": "2015-12-06 13:20:24",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Ivory\\JsonBuilder\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Eric GELOEN",
-                "email": "geloen.eric@gmail.com"
-            }
-        ],
-        "description": "JSON builder with escaping control for PHP 5.3+",
-        "keywords": [
-            "Escape",
-            "builder",
-            "json"
-        ]
-    },
-    {
-        "name": "egeloen/ckeditor-bundle",
-        "version": "4.0.4",
-        "version_normalized": "4.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-            "reference": "2bfe162ab98236efc4d9ad13a5ecda8f877a54a3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/2bfe162ab98236efc4d9ad13a5ecda8f877a54a3",
-            "reference": "2bfe162ab98236efc4d9ad13a5ecda8f877a54a3",
-            "shasum": ""
-        },
-        "require": {
-            "egeloen/json-builder": "^1.0|^2.0",
-            "php": ">=5.3.3",
-            "symfony/dependency-injection": "^2.2|^3.0",
-            "symfony/form": "^2.2|^3.0",
-            "symfony/framework-bundle": "^2.2|^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0|^5.0",
-            "symfony/phpunit-bridge": "^2.7|^3.0",
-            "symfony/yaml": "^2.0.5|^3.0",
-            "twig/twig": "^1.12"
-        },
-        "suggest": {
-            "egeloen/form-extra-bundle": "Allows to load CKEditor asynchronously",
-            "twig/twig": "Allows to use Twig templates"
-        },
-        "time": "2016-07-31 16:06:19",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Ivory\\CKEditorBundle\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Eric GELOEN",
-                "email": "geloen.eric@gmail.com"
-            }
-        ],
-        "description": "Provides a CKEditor integration for your Symfony2 Project.",
-        "keywords": [
-            "CKEditor"
         ]
     }
 ]

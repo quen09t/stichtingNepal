@@ -58,7 +58,7 @@ final class Versions
   'zendframework/zend-eventmanager' => '3.0.1@5c80bdee0e952be112dcec0968bad770082c3a6e',
   'sensio/generator-bundle' => 'v3.0.6@ac91535054d025937d897d78ebb5fc2da5e955a4',
   'symfony/phpunit-bridge' => 'v3.1.1@f5e7cdc9b5cd3f7d9b0228692cd6ec5736c3b074',
-  'p8744/stichting-nepal' => '9999999-dev@5c5cd7702f10e689dc36097af5b88d111e46cd53',
+  'p8744/stichting-nepal' => '1.0.0.0@',
 );
 
     private function __construct()
