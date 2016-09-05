@@ -1,6 +1,8 @@
 # Package Versions
 
-This utility provides very quick and easy access to installed composer dependency versions.
+This utility provides quick and easy access to version information of composer dependencies.
+
+This information is derived from the ```composer.lock``` file which is (re)generated during ```composer install``` or ```composer update```.
 
 ```php
 $version = \PackageVersions\Versions::getVersion('ocramius/package-versions');
@@ -20,8 +22,20 @@ var_dump($version); // 1.0.0@0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33
 composer require ocramius/package-versions
 ```
 
-It is suggested that you re-dump the autoloader in order to prevent
+It is suggested that you use a optimized composer autoloader in order to prevent
 autoload I/O when accessing the `PackageVersions\Versions` API:
+
+Therefore you should use `optimize-autoloader: true` in your composer.json:
+```
+...
+    "config": {
+        "optimize-autoloader": true
+    },
+...
+```
+see https://getcomposer.org/doc/06-config.md#optimize-autoloader
+
+In case you manually generate your autoloader via the CLI use the `--optimize` flag:
 
 ```sh
 composer dump-autoload --optimize

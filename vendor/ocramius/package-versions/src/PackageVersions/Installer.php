@@ -57,7 +57,7 @@ PHP;
      */
     public function activate(Composer $composer, IOInterface $io)
     {
-        $composer->getEventDispatcher()->addSubscriber($this);
+        // Nothing to do here, as all features are provided through event listeners
     }
 
     /**
@@ -168,7 +168,7 @@ PHP;
 
         $lockData['packages-dev'] = $lockData['packages-dev'] ?? [];
 
-        foreach (array_merge($lockData['packages'], $lockData['packages-dev'])  as $package) {
+        foreach (array_merge($lockData['packages'], $lockData['packages-dev']) as $package) {
             yield $package['name'] => $package['version'] . '@' . (
                 $package['source']['reference']?? $package['dist']['reference'] ?? ''
             );
