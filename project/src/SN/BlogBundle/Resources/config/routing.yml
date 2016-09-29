@@ -1,0 +1,7 @@
+sn_blog_homepage:
+    path:     /
+    defaults: { _controller: SNBlogBundle:Default:index }
+
+sn_blog_newestPost:
+  path: /newest/
+  defaults: { _controller: SNBlogBundle:Default:newest }

@@ -1,0 +1,6 @@
+services:
+    sn_user.registration_listener:
+        class: SN\UserBundle\EventListener\RegistrationListener
+        arguments: []
+        tags:
+            - { name: kernel.event_subscriber }

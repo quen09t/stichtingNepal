@@ -1,0 +1,12 @@
+<div id="sponsorContainer">
+{% for sponsor in sponsors %}
+    {% if sponsor.image is defined %}
+    <a href="{{ sponsor.url }}"><div class="sponsor">
+                <img class="sponsorImage"
+                     src="/uploads/images/sponsor/{{ sponsor.image }}"
+                />
+    </div>
+    </a>
+    {%  endif %}
+{% endfor %}
+</div>

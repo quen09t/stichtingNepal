@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{%  block title %}Stichting Nepal - {% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets filter='cssrewrite'
+        'bundles/sncore/css/layout.css'
+        'bundles/sncore/css/back.css'
+        'bundles/sncore/css/main.css'
+        'bundles/sncore/css/sideBar.css'
+        'bundles/snuser/css/manageUsers.css'
+        'bundles/snblog/css/blogPost.css'
+        'bundles/snalbum/css/album.css'
+        'bundles/snsponsor/css/sponsor.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Raleway|Ubuntu' rel='stylesheet' type='text/css'>
+        {% endstylesheets %}
+    {%  endblock stylesheets %}
+    {% block javascript %}
+        <script
+                src="https://code.jquery.com/jquery-2.2.3.min.js"
+                integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+                crossorigin="anonymous"></script>
+        {% javascripts
+        'bundles/snuser/js/manageUsers.js'
+        output='js/compiled/app.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</head>
+<body>
+    <div id="userBanner" class="top">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <span id="username">{{ app.user.username }}</span>
+            <span class="userButton button"> <a href="{{ path('sn_user_profile') }}">
+                My profile </a></span>
+            <span class="userButton button"> <a href="{{ path('fos_user_security_logout') }}">
+                    Logout </a></span>
+        {% else %}
+            <span class="userButton button">
+            <a href="{{ path('fos_user_security_login') }}">
+                {% image '@SNCoreBundle/Resources/public/images/login.png' %}
+                <img src="{{ asset_url }}" alt="login-icon" />
+                {% endimage %}Login</a>
+            </span>
+            <span class="userButton button">
+            <a href="{{ path('fos_user_registration_register') }}">
+            {% image '@SNCoreBundle/Resources/public/images/register.png' %}
+            <img src="{{ asset_url }}" alt="register-icon" />
+            {% endimage %}Register</a>
+            </span>
+        {% endif %}
+    </div>
+    <div id="pageContainer">
+        <div id="sidebar">
+            {% embed "SNCoreBundle::sidebar.html.twig" %}
+            {% endembed %}
+        </div>
+        <div class="fosContent">
+
+        </div>
+
+        <div id="content">
+            {% block content %}
+                {% block fos_content %}
+                    {% block fos_user_content %}{% endblock %}
+                {% endblock %}
+            {% endblock %}
+        </div>
+        <div id="rightSide">
+        {% block rightSide %}
+        {% endblock %}
+            <h2>Sponsors</h2>
+            {{ render(controller('SNSponsorBundle:Default:sponsors')) }}
+        </div>
+
+    </div>
+    <footer>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/images/footer_anbi.png' %}
+            <img src="{{ asset_url }}" alt="anbi" />
+            {% endimage %}
+        </span>
+        <a href="http://www.cbf.nl">
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/images/footer_cbf.png' %}
+            <img src="{{ asset_url }}" alt="cbf" />
+            {% endimage %}
+        </span>
+        </a>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/images/footer_ganzen.png' %}
+            <img src="{{ asset_url }}" alt="wilde ganzen" />
+            {% endimage %}
+        </span>
+    </footer>
+
+
+
+</body>
+
+</html>

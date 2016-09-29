@@ -1,0 +1,12 @@
+{% if post %}
+<h3>{{ post.title }}</h3>
+{{ post.createdOn|date("F jS \\a\\t g:ia") }}<br/>
+{{ post.createdBy }}<br/>
+{% if post.image is defined %}
+    <img class="blogImageSmall"
+         src="/uploads/images/post/{{ post.image }}"
+         alt="{{ post.image }}"
+    />
+{%  endif %}
+<p>{{ post.content | raw }}</p>
+{% endif %}

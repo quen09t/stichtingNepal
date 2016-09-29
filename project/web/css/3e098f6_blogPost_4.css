@@ -1,0 +1,15 @@
+.blogImage {
+    max-width: 400px;
+}
+
+.post {
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.post h3 {
+    text-align: center;
+    width: 100%;
+}
+

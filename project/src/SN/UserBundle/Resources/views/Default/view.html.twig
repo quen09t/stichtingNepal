@@ -1,0 +1,88 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+
+{% block content %}
+    <div id="UserContainer">
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th colspan="3">Status</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for user in users %}
+                <tr id="user_{{ user.id }}">
+                    <td>{{  user.username }}</td>
+                    <td> {{ user.email }}</td>
+                    <td class="labelSuperAdmin roleCell"> <label for="SA{{ user.id }}">Super Admin</label>
+                        <input class="radioRole" id="SA{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_SUPER_ADMIN"></td>
+                    <td class="labelAdmin roleCell"> <label for="A{{ user.id }}" >Admin</label>
+                     <input class="radioRole" id="A{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_ADMIN"></td>
+                    <td class="labelVisitor roleCell"> <label for="V{{ user.id }}" >Visitor</label>
+                        <input class="radioRole" id="V{{ user.id }}" type="radio" name="{{ user.id }}" value="ROLE_VISITOR"></td>
+                    <td><span class="deleteButton button"><a href=" {{ path('sn_user_delete', {'id' : user.id, }) }}">Delete</a></span></td>
+                </tr>
+
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            function checkRoles(callback){
+                var userNames = [];
+                var userId = [];
+                var userRoles = [];
+                {% for user in users %}
+                userNames.push("{{ user.username }}");
+                userId.push("{{ user.Id }}");
+                userRoles.push("{{ user.roles[0] }}")
+                {% endfor %}
+
+                for(var i =0; i<userId.length; i++){
+                    console.log("loop : "+i);
+                    callback(userId[i], [userRoles[i]])
+                }
+
+            }
+
+            function selectRadioButtons(id, role){
+                var mySelector = $("#user_"+id);
+                if(role == "ROLE_SUPER_ADMIN"){
+                    mySelector.find("#ROLE_SUPER_ADMIN").prop("checked",true);
+                    mySelector.find(".labelSuperAdmin").addClass('activeRole');
+
+                }
+                else if(role == "ROLE_ADMIN"){
+                    mySelector.find("#ROLE_ADMIN").prop("checked",true);
+                    mySelector.find(".labelAdmin").addClass('activeRole');
+                }
+                else{
+                    mySelector.find("#ROLE_VISITOR").prop("checked",true);
+                    mySelector.find(".labelVisitor").addClass('activeRole');
+                }
+            }
+
+            checkRoles(selectRadioButtons);
+
+            $(".radioRole").change(function (event) {
+                var thisId = $(this).attr("name");
+                var mySelector = $("#user_"+thisId);
+                var thisRole = $(this).attr("value");
+                mySelector.find("td").removeClass("activeRole");
+                var childId = event.target.id;
+                $("label[for='"+childId+"']").parent().addClass("activeRole");
+
+
+                $.post("{{ path('sn_user_changeRole') }}", {id:thisId, role:thisRole});
+            })
+
+
+        })
+    </script>
+
+
+    {%  endblock %}

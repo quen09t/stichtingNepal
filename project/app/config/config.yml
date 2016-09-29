@@ -1,0 +1,106 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: easyAdmin/ }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+    sn.blogbundle.post_images: /uploads/images/post
+    sn.albumbundle.album_images: /uploads/images/album
+    sn.sponsorbundle.sponsor_images: /uploads/images/sponsor
+    sn.documenbundle.document: /uploads/files/document
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "/var/lib/php/sessions"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'form_table_layout.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: SN\UserBundle\Entity\User
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        post_images:
+            uri_prefix:         %sn.blogbundle.post_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/post
+        album_images:
+            uri_prefix:         %sn.albumbundle.album_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/album
+        sponsor_images:
+            uri_prefix:         %sn.sponsorbundle.sponsor_images%
+            upload_destination: %kernel.root_dir%/../web/uploads/images/sponsor
+        documents:
+            uri_prefix:         %sn.documenbundle.document%
+            upload_destination: %kernel.root_dir%/../web/uploads/files/document
+
+ivory_ck_editor:
+    configs:
+        base_config:
+            toolbar: full

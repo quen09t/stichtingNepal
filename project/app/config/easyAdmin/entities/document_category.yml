@@ -1,0 +1,12 @@
+easy_admin:
+    entities:
+        Document_Category:
+            class: SN\DocumentBundle\Entity\Category
+            label: 'Document Categories'
+            list:
+                fields:
+                    - id
+                    - name
+            form:
+                fields:
+                    - { property: 'name'}

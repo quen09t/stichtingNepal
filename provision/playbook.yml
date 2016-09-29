@@ -1,0 +1,22 @@
+---
+
+- name: SWFP project
+  hosts: dev
+  remote_user: vagrant
+
+  roles:
+    - role: gantsign.oh-my-zsh
+      become: yes
+      users:
+        - username: vagrant
+    - mysql
+    - role: php7
+      php_dev: yes
+    - role: apache2
+      become: yes
+      apache_vhosts:
+        # Additional optional properties: 'serveradmin, serveralias, extra_parameters'.
+        - servername: "sn.local"
+          documentroot: "/var/www/sn.local/web"
+    - common
+...

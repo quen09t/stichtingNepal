@@ -1,0 +1,12 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+    <h2>Documents</h2>
+    {% for category in categories %}
+        <h3>{{ category.name }}</h3>
+        {% for document in documents %}
+            {% if document.category.id == category.id %}
+                <li><a href="/uploads/files/document/{{ document.document }}">{{ document.name }}</a>  {{ document.description | raw }}</li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{%  endblock %}

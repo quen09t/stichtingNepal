@@ -1,0 +1,7 @@
+sn_core_homepage:
+    path:     /
+    defaults: { _controller: SNCoreBundle:Default:index }
+
+sn_core_donate:
+    path: /donate
+    defaults: { _controller: SNCoreBundle:Back:donate }

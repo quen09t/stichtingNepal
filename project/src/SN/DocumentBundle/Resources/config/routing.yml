@@ -1,0 +1,27 @@
+sn_document_homepage:
+    path:     /
+    defaults: { _controller: SNDocumentBundle:Default:index }
+
+sn_document_add:
+    path:     /back/add
+    defaults: { _controller: SNDocumentBundle:Default:add }
+
+sn_document_add_category:
+    path:     /back/addCategory
+    defaults: { _controller: SNDocumentBundle:Default:addCategory }
+
+sn_document_edit:
+    path: /back/edit/{id}
+    defaults: {_controller: SNDocumentBundle:Default:edit}
+
+sn_document_edit_category:
+    path: /back/editCategory/{id}
+    defaults: {_controller: SNDocumentBundle:Default:editCategory}
+
+sn_document_view:
+   path: /back/view/
+   defaults: {_controller: SNDocumentBundle:Default:view}
+
+sn_document_view_category:
+   path: /back/viewCategory/
+   defaults: {_controller: SNDocumentBundle:Default:viewCategory}

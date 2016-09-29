@@ -1,0 +1,28 @@
+{% extends 'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+<h3> Blog </h3>
+
+    {% for post in posts %}
+        {% if post.public %}
+        <div class="post">
+            <div class="blogSideBar">
+                Created by {{ post.createdBy  }} <br/> {{ post.createdOn|date("F jS \\a\\t g:ia") }} <br/>
+                        {% if post.updatedBy %}
+                Updated by {{ post.updatedBy }} <br/> {{ post.updatedOn|date("F jS \\a\\t g:ia") }}
+                        {%  endif %}
+            </div>
+            <div class="postContent">
+                <h3>{{ post.title }}</h3>
+
+                <p>{% if post.image is defined %}
+                        <img class="blogImage"
+                             src="/uploads/images/post/{{ post.image }}"
+                             alt="{{ post.image }}"
+                        />
+                    {%  endif %}{{ post.content | raw }}</p>
+                <a href=" {{ post.link }}">{{ post.link }}</a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{%  endblock %}

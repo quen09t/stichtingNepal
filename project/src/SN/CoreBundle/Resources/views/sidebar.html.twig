@@ -1,0 +1,11 @@
+<span class="sidebarItem {% if app.request.attributes.get('_route') == '' %}active{% endif %}">
+    <a href=" {{ path('sn_core_homepage') }}">Index</a></span>
+<span class="sidebarItem {% if app.request.attributes.get('_route') == '/blog' %}active{% endif %}">
+    <a href=" {{ path('sn_blog_homepage') }}">Blog</a></span>
+<span class="sidebarItem"><a href=" {{ path('sn_link_homepage') }}">Links</a></span>
+<span class="sidebarItem"><a href=" {{ path('sn_document_homepage') }}">Documents</a></span>
+<span class="sidebarItem"><a href=" {{ path('sn_album_homepage') }}">Albums</a></span>
+<span class="sidebarItem"><a href=" {{ path('sn_contact_homepage') }}">Contact</a></span>
+
+<span class="sidebarItem" id="donate"><a href=" {{ path('sn_core_donate') }}">Donate</a></span>
+

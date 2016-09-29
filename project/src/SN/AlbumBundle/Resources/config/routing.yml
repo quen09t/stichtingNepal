@@ -1,0 +1,15 @@
+sn_album_homepage:
+    path:     /
+    defaults: { _controller: SNAlbumBundle:Default:index }
+
+sn_album_add:
+    path:     /back/add
+    defaults: { _controller: SNAlbumBundle:Default:add }
+
+sn_album_view:
+    path:     /back/view
+    defaults: { _controller: SNAlbumBundle:Default:view }
+
+sn_album_edit:
+    path:     /back/edit
+    defaults: { _controller: SNAlbumBundle:Default:edit }

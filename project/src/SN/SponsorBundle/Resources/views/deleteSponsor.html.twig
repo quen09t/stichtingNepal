@@ -1,0 +1,10 @@
+{% extends'SNCoreBundle::layout.html.twig' %}
+{% block content %}
+
+    {% for sponsor in sponsors %}
+        <li>{{ sponsor.name }}
+        </li>
+    {% endfor %}
+
+
+{% endblock %}

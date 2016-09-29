@@ -1,0 +1,4 @@
+services:
+#    sn_link.example:
+#        class: SN\LinkBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
