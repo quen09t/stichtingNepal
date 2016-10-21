@@ -89,22 +89,6 @@
     background-color:#1f99b8;
 }
 
-tbody tr:nth-child(odd){
-    background-color: #c5fffd;
-}
-tbody tr:nth-child(even){
-    background-color: white;
-}
-table {
-    border: 1px solid black;
-}
-table tr {
-    border: 1px solid black;
-}
-table th, table td {
-    padding: 3px;
-}
-
 body {
     background-image: url('../images/NepalMap.png');
     background-size: cover;

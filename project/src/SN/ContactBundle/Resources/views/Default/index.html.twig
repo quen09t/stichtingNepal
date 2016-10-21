@@ -2,7 +2,7 @@
 {% block content %}
 
     <h2>Contact</h2>
-    <table cellspacing="0">
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
             {{ form_start(form)}}
             {{ form_errors(form) }}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -15,7 +15,6 @@
             {{ form_row(form.subject) }}
             {{ form_row(form.message) }}
             {{ form_rest(form) }}
-    </table>
 
 
 
