@@ -55,9 +55,13 @@ body {
 	cursor: pointer;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: bottom 1s, padding_bottom 0.5s, background-color 1s; /* Safari */
-	transition: bottom 1s, padding-bottom 0.8s;
+	transition: bottom 1s, padding-bottom 0.8s, background-color 1s;
 
 }
+.cn-button:hover{
+	background-color: white;
+}
+
 .cn-button.open{
 	bottom:25px;
 	padding-bottom: 0em;
