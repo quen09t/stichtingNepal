@@ -1,0 +1,13 @@
+<button class="cn-button" id="cn-button">Menu</button>
+<div class="cn-wrapper" id="cn-wrapper">
+    {% set route = app.request.attributes.get('_route') %}
+    <ul>
+        <li><a {{ route == 'sn_core_homepage' ? 'class="active"' }} href="{{ path('sn_core_homepage') }}"><span>Home</span></a></li>
+        <li><a {{ route == 'sn_blog_homepage' ? 'class="active"' }} href="{{ path('sn_blog_homepage') }}"><span>Blog</span></a></li>
+        <li><a {{ route == 'sn_link_homepage' ? 'class="active"' }} href="{{ path('sn_link_homepage') }}"><span>Links</span></a></li>
+        <li><a {{ route == 'sn_document_homepage' ? 'class="active"' }} href="{{ path('sn_document_homepage') }}"><span>Documents</span></a></li>
+        <li><a {{ route == 'sn_album_homepage' ? 'class="active"' }} href="{{ path('sn_album_homepage') }}"><span>Albums</span></a></li>
+        <li><a {{ route == 'sn_contact_homepage' ? 'class="active"' }} href="{{ path('sn_contact_homepage') }}"><span>Contact</span></a></li>
+        <li><a {{ route == 'sn_core_donate' ? 'class="active"' }} href="{{ path('sn_core_donate') }}"><span>Donate</span></a></li>
+    </ul>
+</div>

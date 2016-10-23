@@ -11,6 +11,7 @@ namespace PackageVersions;
 final class Versions
 {
     const VERSIONS = array (
+  'bmatzner/fontawesome-bundle' => '4.6.1@e52f9f684017b410041850e16dc49a197ef4edab',
   'doctrine/annotations' => 'v1.2.7@f25c8aab83e0c3e976fd7d19875f198ccf2f7535',
   'doctrine/cache' => 'v1.6.0@f8af318d14bdb0eff0336795b428b547bd39ccb6',
   'doctrine/collections' => 'v1.3.0@6c1e4eef75f310ea1b3e30945e9f06e652128b8a',
@@ -28,9 +29,12 @@ final class Versions
   'incenteev/composer-parameter-handler' => 'v2.1.2@d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc',
   'javiereguiluz/easyadmin-bundle' => 'v1.15.1@044e569a12011474dcbdcedc4f298d5f30cf4dff',
   'jdorn/sql-formatter' => 'v1.2.17@64990d96e0959dff8e059dfcdc1af130728d92bc',
+  'jms/i18n-routing-bundle' => 'dev-master@1c7311596abea9356c9bc540346d1e4738288d79',
   'jms/metadata' => '1.5.1@22b72455559a25777cfd28c4ffda81ff7639f353',
+  'jms/translation-bundle' => '1.3.1@e79fe1cd77e7749223c870bdae0bd400c21a102d',
   'kriswallsmith/assetic' => 'v1.3.2@9928f7c4ad98b234e3559d1049abd13387f86db5',
   'monolog/monolog' => '1.21.0@f42fbdfd53e306bda545845e4dbfd3e72edb4952',
+  'nikic/php-parser' => 'v2.1.1@4dd659edadffdc2143e4753df655d866dbfeedf0',
   'ocramius/package-versions' => '1.1.1@4b2bfc8128db95b533303942b0d5b332bffa07c6',
   'ocramius/proxy-manager' => '2.0.3@51c7fdd99dba53808aaab21b34f7a55b302c160c',
   'pagerfanta/pagerfanta' => 'v1.0.3@a874d3612d954dcbbb49e5ffe178890918fb76fb',

@@ -1,7 +1,3 @@
-#sponsorContainer{
-    display: flex;
-    flex-flow: row wrap;
-}
 .sponsor{
     width: 100px;
 }

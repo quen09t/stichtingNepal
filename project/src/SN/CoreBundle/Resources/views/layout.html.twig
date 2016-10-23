@@ -7,8 +7,8 @@
         {% stylesheets filter='cssrewrite'
         'bundles/sncore/css/layout.css'
         'bundles/sncore/css/main.css'
+        'bundles/sncore/css/nav.css'
         'bundles/sncore/css/bootstrap.css'
-        'bundles/sncore/css/sideBar.css'
         'bundles/snuser/css/manageUsers.css'
         'bundles/snblog/css/blogPost.css'
         'bundles/snalbum/css/album.css'
@@ -16,6 +16,7 @@
         %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Raleway|Ubuntu' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
         {% endstylesheets %}
     {%  endblock stylesheets %}
     {% block javascript %}
@@ -25,37 +26,27 @@
                 crossorigin="anonymous"></script>
         {% javascripts
         'bundles/snuser/js/manageUsers.js'
+        'bundles/sncore/js/modernizr-2.6.2.min.js'
+        'bundles/sncore/js/nav.js'
+        'bundles/sncore/js/polyfills.js'
         output='js/compiled/app.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
 </head>
 <body>
-    <div id="userBanner" class="top">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <span id="username">{{ app.user.username }}</span>
-            <span class="userButton button"> <a href="{{ path('sn_user_profile') }}">
-                My profile </a></span>
-            <span class="userButton button"> <a href="{{ path('fos_user_security_logout') }}">
-                    Logout </a></span>
+            <span id="username" style="display: none">{{ app.user.username }}</span>
+            <div class="roundButton" id="userProfileButton"><a href="{{ path('sn_user_profile') }}"><i class="fa fa-user"></i> </a></div>
+            <div class="roundButton" id="userLogoutButton"><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i></a></div>
         {% else %}
-            <span class="userButton button">
-            <a href="{{ path('fos_user_security_login') }}">
-                {% image '@SNCoreBundle/Resources/public/images/login.png' %}
-                <img src="{{ asset_url }}" alt="login-icon" />
-                {% endimage %}Login</a>
-            </span>
-            <span class="userButton button">
-            <a href="{{ path('fos_user_registration_register') }}">
-            {% image '@SNCoreBundle/Resources/public/images/register.png' %}
-            <img src="{{ asset_url }}" alt="register-icon" />
-            {% endimage %}Register</a>
-            </span>
+            <div class="roundButton" id="userLoginButton">
+            <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in"></i></a>
+            </div>
         {% endif %}
-    </div>
     <div id="pageContainer">
-        <div id="sidebar">
-            {% embed "SNCoreBundle::sidebar.html.twig" %}
+        <div id="nav">
+            {% embed "SNCoreBundle::nav.html.twig" %}
             {% endembed %}
         </div>
         <div class="fosContent">
@@ -69,18 +60,23 @@
                 {% endblock %}
             {% endblock %}
         </div>
-        <div id="rightSide">
-        {% block rightSide %}
-        {% endblock %}
-            <h2>Sponsors</h2>
-            {{ render(controller('SNSponsorBundle:Default:sponsors')) }}
-        </div>
+
 
     </div>
+    <hr>
+    <div id="sponsors">
+        {{ render(controller('SNSponsorBundle:Default:sponsors')) }}
+    </div>
+    <hr>
     <footer>
         <span class="footerImg">
             {% image '@SNCoreBundle/Resources/public/images/footer_anbi.png' %}
             <img src="{{ asset_url }}" alt="anbi" />
+            {% endimage %}
+        </span>
+        <span class="footerImg">
+            {% image '@SNCoreBundle/Resources/public/images/footer_ganzen.png' %}
+            <img src="{{ asset_url }}" alt="wilde ganzen" />
             {% endimage %}
         </span>
         <a href="http://www.cbf.nl">
@@ -90,11 +86,6 @@
             {% endimage %}
         </span>
         </a>
-        <span class="footerImg">
-            {% image '@SNCoreBundle/Resources/public/images/footer_ganzen.png' %}
-            <img src="{{ asset_url }}" alt="wilde ganzen" />
-            {% endimage %}
-        </span>
     </footer>
 
 

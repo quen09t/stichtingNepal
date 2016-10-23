@@ -23,7 +23,6 @@
     position:relative;
     top:1px;
 }
-
 .userButton {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
     background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
@@ -100,4 +99,52 @@ body {
 
 p {
     text-indent: 10px;
+}
+
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;
+    background-color:#FFFF00;
+    height: 1px;
+}
+.roundButton {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid darkred;
+    overflow: hidden;
+    background-color: darkred;
+    font-size: 2em;
+    color: white;
+}
+
+.roundButton a {
+    color:white !important;
+    width: 100%;
+    height: 100%;
+}
+
+.roundButton a i {
+    width:100%;
+    height: 100%;
+}
+#userLoginButton, #userProfileButton {
+    position: fixed;
+    top:-75px;
+    left:-75px;
+}
+#userLoginButton a i, #userProfileButton a i{
+    margin-left: 90px;
+    margin-top: 90px;
+}
+#userLogoutButton {
+    position: fixed;
+    top:-75px;
+    right:-75px;
+}
+#userLogoutButton a i {
+    margin-left: 30px;
+    margin-top: 90px;
 }

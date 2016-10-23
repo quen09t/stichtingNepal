@@ -6,7 +6,7 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    <div id="loginForm">
     <form action="{{ path("fos_user_security_check") }}" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
         <div class="form-group">
@@ -26,9 +26,7 @@
         <div class="form-group">
             <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
         </div>
-
-
     </form>
-
+    </div>
     <a id="register" href="{{ path("fos_user_registration_register") }}">{{ 'registration.submit'|trans }}</a>
 {% endblock fos_user_content %}

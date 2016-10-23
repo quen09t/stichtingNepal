@@ -14,8 +14,8 @@ class ComposerStaticInit7e1ca30e65c0646edad1ee102a70d124
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
-        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -57,6 +57,7 @@ class ComposerStaticInit7e1ca30e65c0646edad1ee102a70d124
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Cache\\' => 10,
+            'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
         'M' => 
@@ -184,6 +185,10 @@ class ComposerStaticInit7e1ca30e65c0646edad1ee102a70d124
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
@@ -275,6 +280,17 @@ class ComposerStaticInit7e1ca30e65c0646edad1ee102a70d124
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
             ),
         ),
+        'J' => 
+        array (
+            'JMS\\TranslationBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/translation-bundle',
+            ),
+            'JMS\\I18nRoutingBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/i18n-routing-bundle',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 
@@ -300,6 +316,13 @@ class ComposerStaticInit7e1ca30e65c0646edad1ee102a70d124
             'Doctrine\\Common\\Annotations\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
+            ),
+        ),
+        'B' => 
+        array (
+            'Bmatzner\\FontAwesomeBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/bmatzner/fontawesome-bundle',
             ),
         ),
         'A' => 
